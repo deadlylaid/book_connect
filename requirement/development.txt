@@ -2,4 +2,6 @@
 pep8
 Ipython
 selenium
+django-debug-toolbar
+django-extensions
 
