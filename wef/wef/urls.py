@@ -20,5 +20,6 @@ from users.views import join_us
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
     url(r'^$', join_us),
 ]
