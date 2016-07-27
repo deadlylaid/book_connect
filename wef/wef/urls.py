@@ -16,10 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from wef.views import home
 from users.views import join_us
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    url(r'^$', join_us),
+    url(r'^$', home, name='home'),
 ]
