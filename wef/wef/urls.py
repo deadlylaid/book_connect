@@ -16,11 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from wef.views import home
-from users.views import join_us
+from wef.views import *
+from users.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^$', home, name='home'),
+
+    url(r'^joinus/$', join_us, name='join_us')
 ]

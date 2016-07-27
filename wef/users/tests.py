@@ -3,6 +3,7 @@ from django.test import TestCase
 from django.http import HttpRequest
 
 from wef.views import home
+from users.views import join_us
 
 
 class HomePageTest(TestCase):
@@ -16,6 +17,14 @@ class HomePageTest(TestCase):
     def test_home_page_renders_home_template(self):
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'home.html')
+
+
+class UserTest(TestCase):
+
+    # joinus url에 들어가면 join_us view를 호출한다.
+    def test_join_us_url_resolve_to_join_us_view(self):
+        found = resolve('/joinus/')
+        self.assertEqual(found.func, join_us)
 
 #    def test_Join_Us_should_return_correct_html(self):
 #        request = HttpRequest()
