@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 import unittest
 
 
@@ -17,12 +18,14 @@ class NewVisitorTest(unittest.TestCase):
 
         # 웹 페이지는 헤더가 '남서울 도서공유'를 표시하고 있다.
         self.assertIn('남서울 도서공유', self.browser.title)
-        self.fail('Finish the test!')
 
         # 민수는 회원가입을 하고싶다.
-        # 하지만 회원가입이 없다.
+        # 민수는 회원가입 버튼을 누른다.
+        join_us = self.browser.find_element_by_id('join_us')
+        join_us.send_keys(Keys.ENTER)
 
-        # 민수는 브라우저를 종료한다.
+        # 갑자기 하기싫어져 강종해버린다.
+        self.fail('Finish the test!')
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')
