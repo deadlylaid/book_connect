@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     'debug_toolbar',
     'django_extensions',
-
+    'social.apps.django_app.default',
 
     'wef',
     'users',
@@ -108,6 +108,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+AUTHENTICATION_BACKENDS = (
+        'social.backends.open_id.OpenIdAuth',
+        'social.backends.google.GoogleOAuth2',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
