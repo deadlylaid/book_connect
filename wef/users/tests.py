@@ -26,8 +26,8 @@ class UserTest(TestCase):
         found = resolve('/joinus/')
         self.assertEqual(found.func, join_us)
 
-#    def test_Join_Us_should_return_correct_html(self):
-#        request = HttpRequest()
-#        response = join_us(request)
-#        self.assertTrue(response.content.startswith(b'<html>'))
-#        self.assertTrue(response.content.endswith(b'</html>'))
+    # joinus form에서 데이터를 입력해서 submit을 하면
+    # joinus view로 데이터를 보낸다
+    def test_join_us_form_send_data_to_join_us_view(self):
+        found = resolve('/joinus/')
+        self.assertEqual(found.func, join_us)
