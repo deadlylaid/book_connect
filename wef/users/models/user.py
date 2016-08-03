@@ -11,6 +11,6 @@ class User(AbstractUser):
             blank=True,
             )
 
-    class META:
+    class Meta:
         verbose_name = '유저'
         verbose_name_plural = verbose_name
