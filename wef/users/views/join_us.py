@@ -3,4 +3,8 @@ from django.http import HttpResponse
 
 
 def join_us(request):
-    return HttpResponse('Join us')
+    return render(
+            request,
+            'users/joinus.html',
+            context={}
+            )
