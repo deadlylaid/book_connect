@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>남서울 도서공유</title>
-</head>
-<body>
-  <div>남서울도서공유 홈</div>
-  <a href="/joinus/" id='join_us'>회원가입</a>
+{% extends "base.html" %}
+
+{% block title %}남서울 도서공유{% endblock %}
+
+{% block body %}
+<div>남서울도서공유 홈</div>
+<a href="{% url "join_us" %}" id='join_us'>회원가입</a>
 </body>
-</html>
+{% endblock %}
