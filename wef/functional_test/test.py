@@ -38,10 +38,6 @@ class NewVisitorTest(LiveServerTestCase):
 
         self.assertIn('남서울 도서공유', self.browser.title)
 
-    def test_user_can_login_this_website(self):
-        # 로그인을 하기위해 hame화면으로 간다.
-        self.browser.get(self.live_server_url)
-
         # 로그인 버튼을 클릭한다.
         log_in = self.browser.find_element_by_id('log_in')
         log_in.send_keys(Keys.ENTER)
@@ -58,6 +54,8 @@ class NewVisitorTest(LiveServerTestCase):
 
         self.browser.find_element_by_id('button').click()
 
-        # self.assertNotIn('회원가입', self.browser.find_element_by_tag_name('body').text)
+        self.assertNotIn('회원가입', self.browser.find_element_by_tag_name('body').text)
+        self.assertNotIn('로그인', self.browser.title)
+
         # 갑자기 하기싫어져 강종해버린다.
         self.fail('테스트가 문제없이 통과되었습니다.')
