@@ -11,7 +11,7 @@ class NewVisitorTest(LiveServerTestCase):
     def tearDown(self):
         self.browser.quit()
 
-    def test_can_sign_up_this_website(self):
+    def test_can_sign_up_and_log_in_this_website(self):
 
         # 민수는 중고 도서공유 사이트가 있다는 소릴듣고 url접속을 한다.
         self.browser.get(self.live_server_url)
@@ -38,5 +38,26 @@ class NewVisitorTest(LiveServerTestCase):
 
         self.assertIn('남서울 도서공유', self.browser.title)
 
+    def test_user_can_login_this_website(self):
+        # 로그인을 하기위해 hame화면으로 간다.
+        self.browser.get(self.live_server_url)
+
+        # 로그인 버튼을 클릭한다.
+        log_in = self.browser.find_element_by_id('log_in')
+        log_in.send_keys(Keys.ENTER)
+
+        self.assertIn('로그인', self.browser.title)
+
+        # 로그인 페이지에서 아이디와 비빌번호를 입력하고
+        # 확인 버튼을 누른다
+        username_box = self.browser.find_element_by_name('username')
+        password_box = self.browser.find_element_by_name('password')
+
+        username_box.send_keys('MyTestID')
+        password_box.send_keys('123')
+
+        self.browser.find_element_by_id('button').click()
+
+        # self.assertNotIn('회원가입', self.browser.find_element_by_tag_name('body').text)
         # 갑자기 하기싫어져 강종해버린다.
         self.fail('테스트가 문제없이 통과되었습니다.')
