@@ -1,12 +1,14 @@
+{% extends "base.html" %}
+
 {% block title %}회원가입창{% endblock %}
 {% block body %}
 <body>
   <form action="{% url "join_us" %}" method="POST">
     {% csrf_token %}
     <p>Username</p>
-    <input type="text" name="username" placeholder="닉네임설정">
+    <input type="text" name="username" placeholder="닉네임설정" required>
     <p>phoenumber</p>
-    <input type="text" name="phone" placeholder=" '-'을 빼고 입력해 주세요">
+    <input type="text" name="phone" placeholder=" '-'을 빼고 입력해 주세요" required>
     <p>Password</p>
     <input type="text" name="password" placeholder="비밀번호">
     
