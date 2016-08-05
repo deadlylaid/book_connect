@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.core.urlresolvers import reverse
 
 from users.models import User
 
@@ -24,10 +25,4 @@ def join_us(request):
                 phone=phone,
                 )
 
-        return redirect(
-                render(
-                    request,
-                    'users/home.html',
-                    context={}
-                    )
-                )
+        return redirect(reverse("home"))

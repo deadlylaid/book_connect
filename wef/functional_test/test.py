@@ -30,11 +30,13 @@ class NewVisitorTest(LiveServerTestCase):
         password_box = self.browser.find_element_by_name('password')
         phone_box = self.browser.find_element_by_name('phone')
 
-        username_box.send_keys('testID3')
+        username_box.send_keys('MyTestID')
         phone_box.send_keys('01011111111')
         password_box.send_keys('123')
 
         self.browser.find_element_by_id('button').click()
 
+        self.assertIn('남서울 도서공유', self.browser.title)
+
         # 갑자기 하기싫어져 강종해버린다.
-        self.fail('Finish the test!')
+        self.fail('테스트가 문제없이 통과되었습니다.')
