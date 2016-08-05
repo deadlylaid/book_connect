@@ -7,6 +7,7 @@
 
     {% if request.user.is_authenticated %}
         <p>현재 로그인 상태입니다.</p>
+        <a href="{% url "log_out" %}" id='log_out'>로그아웃</a>
     {% else %}
         <a href="{% url "join_us" %}" id='join_us'>회원가입</a>
         <a href="{% url "log_in" %}" id='log_in'>로그인</a>
