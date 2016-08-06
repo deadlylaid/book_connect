@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social.apps.django_app.default',
 
     'debug_toolbar',
     'django_extensions',
@@ -70,6 +71,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -77,6 +80,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wef.wsgi.application'
 
+# Python Social auth
+
+AUTHENTICATION_BACKENDS = (
+        'social.backends.open_id.OpenIdAuth',
+        'social.backends.facebook.FacebookOAuth2',
+        'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
