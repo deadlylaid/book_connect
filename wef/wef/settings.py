@@ -83,12 +83,38 @@ WSGI_APPLICATION = 'wef.wsgi.application'
 # Python Social auth
 
 AUTHENTICATION_BACKENDS = (
-        'social.backends.open_id.OpenIdAuth',
+        # Facebook Social auth
         'social.backends.facebook.FacebookOAuth2',
+        # django defualt
         'django.contrib.auth.backends.ModelBackend',
 )
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+# Facebook App key
+SOCIAL_AUTH_FACEBOOK_KEY = '1050715895043497'
+SOCIAL_AUTH_FACEBOOK_SECRET = '09929f8d27d1c78b765506f5a547286c'
+SOCIAL_AUTH_FACEBOOK_APP_NAMESPACE = 'bkfacebook'
+
+# Config redirect URL after Social sign up
+LOGIN_REDIRECT_URL = '/'
+
+# Social Auth login process customizing
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+
+    'wef.utils.get_username',
+
+    'social.pipeline.social_auth.associate_by_email',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details',
+)
+
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
