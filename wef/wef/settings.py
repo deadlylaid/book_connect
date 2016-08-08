@@ -85,6 +85,8 @@ WSGI_APPLICATION = 'wef.wsgi.application'
 AUTHENTICATION_BACKENDS = (
         # Facebook Social auth
         'social.backends.facebook.FacebookOAuth2',
+        # Kakao talk Social auth
+        'social.backends.kakao.KakaoOAuth2',
         # django defualt
         'django.contrib.auth.backends.ModelBackend',
 )
@@ -95,6 +97,10 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get("FACEBOOK_KEY")
 SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get("FACEBOOK_SECRET")
 SOCIAL_AUTH_FACEBOOK_APP_NAMESPACE = os.environ.get("FACEBOOK_APP_NAMESPACE")
+
+# Kakao App key
+SOCIAL_AUTH_KAKAO_KEY = os.environ.get("KAKAO_KEY")
+SOCIAL_AUTH_KAKAO_SECRET = os.environ.get("KAKAO_SECRET")
 
 # Config redirect URL after Social sign up
 LOGIN_REDIRECT_URL = '/aftersocial/'
