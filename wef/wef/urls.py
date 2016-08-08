@@ -27,5 +27,6 @@ urlpatterns = [
     url(r'^joinus/$', join_us, name='join_us'),
     url(r'^login/$', LogInView.as_view(), name='log_in'),
     url(r'^logout/$', LogOutView.as_view(), name='log_out'),
+    url(r'^aftersocial/$', AfterSocial.as_view(), name='aftersocial'),
     url(r'', include('social.apps.django_app.urls', namespace='social'))
 ]
