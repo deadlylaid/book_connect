@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse
+from django.contrib.auth import login, authenticate
 
 from users.models import User
 
@@ -25,4 +26,11 @@ def join_us(request):
                 phone=phone,
                 )
 
-        return redirect(reverse("home"))
+        created_user = authenticate(
+                username=username,
+                password=password,
+                )
+
+        login(request, created_user)
+
+        return redirect(reverse("aftersocial"))
