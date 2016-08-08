@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}남서울 도서공유{% endblock %}
+
+{% block body %}
+<body>
+<p> 회원가입이 완료되었습니다!</p>
+
+<p>당신의 닉네임을 만들어주세요!<p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="textbox" name="nickname" placeholeder="닉네임" required>
+  <input type="tel" name="phonenumber" placeholeder="전화번호">
+  <input type="submit" id="button">
+
+</form>
+
+</body>
+{% endblock %}
