@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'wef',
     'users',
+    'items',
 
 ]
 
