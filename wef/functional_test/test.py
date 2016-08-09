@@ -36,21 +36,15 @@ class NewVisitorTest(LiveServerTestCase):
 
         self.browser.find_element_by_id('button').click()
 
+        # 닉네임 설정창으로 리다이렉트된다.
         self.assertIn('남서울 도서공유', self.browser.title)
 
-        # 로그인 버튼을 클릭한다.
-        log_in = self.browser.find_element_by_id('log_in')
-        log_in.send_keys(Keys.ENTER)
+        # 닉네임과 휴대전화번호를 설정하기 위해서 입력한다.
+        nickname_box = self.browser.find_element_by_name('nickname')
+        phonenumber_box = self.browser.find_element_by_name('phonenumber')
 
-        self.assertIn('로그인', self.browser.title)
-
-        # 로그인 페이지에서 아이디와 비빌번호를 입력하고
-        # 확인 버튼을 누른다
-        username_box = self.browser.find_element_by_name('username')
-        password_box = self.browser.find_element_by_name('password')
-
-        username_box.send_keys('MyTestID')
-        password_box.send_keys('123')
+        nickname_box.send_keys('NICKNAMETEST')
+        phonenumber_box.send_keys('01020302030')
 
         self.browser.find_element_by_id('button').click()
 
