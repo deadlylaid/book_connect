@@ -1,0 +1,1 @@
+from .booksale import BookSale
