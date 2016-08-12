@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %}회원가입창{% endblock %}
+{% block title %}판매 등록{% endblock %}
 {% block body %}
 <body>
   <form action="" method="POST">
@@ -9,21 +9,20 @@
     <input type="text" name="title" placeholder="제목" required>
    
     <p>판매할 도서</p>
-    <input type="text" name="bookname" placeholder="도서이름" required>
+    <input type="text" name="bookname" placeholder="도서 이름">
     <p>가격</p>
-    <input type="text" name="price" placeholder="가격" required>
+    <input type="text" name="bookprice" placeholder="가격">
     
-    <button name="addlist">도서 추가</button>
-    
+    <input type='button' name="addlist" value="추가">
+
     <ul class="booklist">
-      <li></li>
     </ul>
-      
+
     <input type="submit" id='button'>
 
-  
+    <ul class="hiddenlist">
+    </ul> 
   </form>
-
 </body>
 {% endblock %}
 
