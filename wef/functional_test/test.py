@@ -57,31 +57,5 @@ class NewVisitorTest(LiveServerTestCase):
 
         self.assertIn('회원가입', self.browser.find_element_by_tag_name('body').text)
 
-        # 갑자기 하기싫어져 강종해버린다.
-        # self.fail('테스트가 문제없이 통과되었습니다.')
-
         # 웹 페이지는 헤더가 '남서울 도서공유'를 표시하고 있다.
         self.assertIn('남서울 도서공유', self.browser.title)
-
-        # 메인 페이지에 있는 로그인 버튼을 클릭한다.
-        log_in = self.browser.find_element_by_id('log_in')
-        log_in.send_keys(Keys.ENTER)
-        self.assertIn('로그인', self.browser.title)
-
-        # 로그인 페이지에서 아이디와 비빌번호를 입력하고
-        # 확인 버튼을 누른다
-        username_box = self.browser.find_element_by_name('username')
-        password_box = self.browser.find_element_by_name('password')
-
-        username_box.send_keys('MyTestID')
-        password_box.send_keys('123')
-
-        self.browser.find_element_by_id('button').click()
-
-        self.assertIn('남서울 도서공유', self.browser.title)
-
-        book_sale = self.browser.find_element_by_id('book_sale')
-        book_sale.send_keys(Keys.ENTER)
-        self.assertIn('도서 판매', self.browser.title)
-
-        self.fail('이게 되나')
