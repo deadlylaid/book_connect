@@ -13,4 +13,7 @@ class BookSale(View):
                )
 
     def post(self, request):
-        pass
+
+        title = request.POST.get('title')
+        book_names = request.POST.getlist('book')
+        book_prices = request.POST.getlist('price')
