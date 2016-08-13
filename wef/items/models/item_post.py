@@ -4,7 +4,7 @@ from django.conf import settings
 
 class ItemPost(models.Model):
 
-    user = models.foreignKey(
+    user = models.ForeignKey(
             settings.AUTH_USER_MODEL,
             )
 
