@@ -56,7 +56,13 @@ class OurClientLogInTest(StaticLiveServerTestCase):
 
         # 제목을 쓰고 포스트를 등록한다
         title_box = self.browser.find_element_by_name('title')
+        title_box.send_keys('book saling')
         self.browser.find_element_by_id('button').click()
 
         # 포스트가 등록되면서 포스트 장으로 이동한다
-        self.assertIn('판매페이지', self.browser.title)
+        # 등록된 포스트 속 도서가 리스트로 나온다
+        self.assertIn('상세 페이지', self.browser.title)
+        self.assertIn('판매할 도서', self.browser.find_element_by_tag_name('body').text)
+        self.assertIn('글쓰기와 말하기', self.browser.find_element_by_tag_name('body').text)
+
+        self.assertIn('10000', self.browser.find_element_by_tag_name('body').text)
