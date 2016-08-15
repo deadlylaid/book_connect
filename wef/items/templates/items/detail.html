@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}상세 페이지{% endblock %}
+{% block body %}
+<body>
+  <p>제목</p>
+  <p>{{ post.title }}<p>
+   
+    <p>판매할 도서</p>
+
+    <ul class="booklist">
+      {% for bookname in post.booklist_set.all %}
+      <li> {{ bookname.bookname }}({{ bookname.bookprice }}) </li>
+      {% endfor %}
+    </ul>
+
+    <p>가격</p>
+
+</body>
+{% endblock %}

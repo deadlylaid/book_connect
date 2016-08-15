@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^logout/$', LogOutView.as_view(), name='log_out'),
 
     url(r'^booksale/$', BookSale.as_view(), name='booksale'),
+    url(r'^booksale/(?P<pk>\d+)/$', PostDetail.as_view(), name='postdetail'),
 
     url(r'^aftersocial/$', AfterSocial.as_view(), name='aftersocial'),
 
