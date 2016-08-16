@@ -5,7 +5,7 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from users.models import User
 
 
-class OurClientLogInTest(StaticLiveServerTestCase):
+class OurClientCreateItemTest(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -64,5 +64,12 @@ class OurClientLogInTest(StaticLiveServerTestCase):
         self.assertIn('상세 페이지', self.browser.title)
         self.assertIn('판매할 도서', self.browser.find_element_by_tag_name('body').text)
         self.assertIn('글쓰기와 말하기', self.browser.find_element_by_tag_name('body').text)
-
         self.assertIn('10000', self.browser.find_element_by_tag_name('body').text)
+
+        # 글을 게시한 순간 구매 의사가 있는 사람에게
+        # 문자가 와서 글쓰기와 말하기 책을 팔림버튼을 눌렀다
+        sold_out_button = self.browser.find_element_by_id('btn1')
+        sold_out_button.click()
+
+        self.assertNotIn('글쓰기와 말하기', self.browser.find_element_by_tag_name('body').text)
+        self.assertNotIn('10000', self.browser.find_element_by_tag_name('body').text)
