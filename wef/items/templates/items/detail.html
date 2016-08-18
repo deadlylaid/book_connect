@@ -10,11 +10,14 @@
 
     <ul class="booklist">
       {% for bookname in post.booklist_set.all %}
-      <li> {{ bookname.bookname }}({{ bookname.bookprice }}) </li>
+
+      <li> {{ bookname.bookname }}({{ bookname.bookprice }})<input type='button' id='btn{{ forloop.counter }}' {% if forloop.last %}data-list-num={{ forloop.counter }} {% endif %} value='팔림'> </li>
+
       {% endfor %}
     </ul>
-
-    <p>가격</p>
-
 </body>
+{% endblock %}
+
+{% block js %}
+<script src="{% static "js/cancelbutton.js" %}" type="text/javascript"></script>
 {% endblock %}
