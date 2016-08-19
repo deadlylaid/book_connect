@@ -5,14 +5,11 @@
 <body>
   <p>제목</p>
   <p>{{ post.title }}<p>
-   
-    <p>판매할 도서</p>
-
+  <p>판매할 도서</p>
     <ul class="booklist">
       {% for bookname in post.booklist_set.all %}
-
-      <li> {{ bookname.bookname }}({{ bookname.bookprice }})<input type='button' id='btn{{ forloop.counter }}' {% if forloop.last %}data-list-num={{ forloop.counter }} {% endif %} value='팔림'> </li>
-
+      <li> {{ bookname.bookname }}({{ bookname.bookprice }}원)<input type='button' class='cancelbutton' id='btn{{ forloop.counter }}' value='sold out'> </li>
+      {% if forloop.last %}<div data-list-num={{ forloop.counter }}></div> {% endif %} 
       {% endfor %}
     </ul>
 </body>
