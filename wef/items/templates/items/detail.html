@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block title %}상세 페이지{% endblock %}
+{% block css %}
+<style type="text/css">
+    .redline{
+        text-decoration: line-through;
+    }
+</style>
+{% endblock %}
 {% block body %}
 <body>
   <p>제목</p>
@@ -9,7 +16,7 @@
     <ul class="booklist">
       {% for bookname in post.booklist_set.all %}
       <li id='list{{ forloop.counter }}'>{{ bookname.bookname }}({{ bookname.bookprice }}원)<input type='button' class='cancelbutton' id='btn{{ forloop.counter }}' value='sold out'> </li>
-      {% if forloop.last %}<div data-list-num={{ forloop.counter }}></div> {% endif %} 
+      {% if forloop.last %}<div data-list-num={{ forloop.counter }} data-post-id={{ post.id }}></div> {% endif %} 
       {% endfor %}
     </ul>
 </body>
