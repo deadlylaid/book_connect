@@ -34,6 +34,7 @@ class BookSale(LoginRequiredMixin, View):
         for i, names in enumerate(book_names):
             BookList.objects.create(
                     post=created_bookpost,
+                    booknumber=i+1,
                     bookname=names,
                     bookprice=book_prices[i],
                     )
