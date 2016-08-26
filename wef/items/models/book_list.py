@@ -8,6 +8,9 @@ class BookList(models.Model):
             "ItemPost",
             )
 
+    booknumber = models.IntegerField(
+            )
+
     bookname = models.CharField(
             max_length=200,
             )
