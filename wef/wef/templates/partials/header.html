@@ -1,0 +1,15 @@
+<header>
+<div>남서울도서공유 홈</div>
+
+{% if request.user.is_authenticated %}
+    <p>현재 로그인 상태입니다.</p>
+    <p>{{ request.user.phone }}</p>
+    <p>{{ request.user.nickname }}</p>
+    <a href="{% url "log_out" %}" id='log_out'>로그아웃</a>
+{% else %}
+    <a href="{% url "join_us" %}" id='join_us'>회원가입</a>
+    <a href="{% url "log_in" %}" id='log_in'>로그인</a>
+{% endif %}
+
+<a href="{% url "booksale" %}" id='book_sale'>도서등록</a>
+</header>
