@@ -14,9 +14,13 @@
   <p>{{ post.title }}<p>
   <p>판매할 도서</p>
     <ul class="booklist">
-      {% for bookname in post.booklist_set.all %}
-      <li id='list{{ forloop.counter }}'>{{ bookname.bookname }}({{ bookname.bookprice }}원)<input type='button' class='cancelbutton' id='btn{{ forloop.counter }}' value='sold out'> </li>
-      {% if forloop.last %}<div data-list-num={{ forloop.counter }} data-post-id={{ post.id }}></div> {% endif %} 
+        {% for bookname in post.booklist_set.all %}
+          {% if not bookname.is_soldout %}
+          <li id='list{{ forloop.counter }}'>{{ bookname.bookname }}({{ bookname.bookprice }}원)<input type='button' id='btn{{ forloop.counter }}' value='sold out'> </li>
+          {% else %}
+          <li id='list{{ forloop.counter }}' class='redline'>{{ bookname.bookname }}({{ bookname.bookprice }}원)<input type='button' id='btn{{ forloop.counter }}' value='번복하기'> </li>
+          {% endif %}
+          {% if forloop.last %}<div data-list-num={{ forloop.counter }} data-post-id={{ post.id }}></div> {% endif %} 
       {% endfor %}
     </ul>
 </body>
