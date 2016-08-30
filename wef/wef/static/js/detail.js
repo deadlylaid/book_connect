@@ -9,7 +9,7 @@
             var button_id = $(this).attr("id");
             var button = $(this);
             var number = button_id.replace("btn", "");
-            $post_id = $("div").data("postId");
+            $post_id = $(".data").data("postId");
 
             // 책 이름을 잡기위해 li태그의 id를 잡는다
             var list = '#list'+number
