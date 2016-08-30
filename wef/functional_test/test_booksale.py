@@ -71,5 +71,5 @@ class OurClientCreateItemTest(StaticLiveServerTestCase):
         sold_out_button = self.browser.find_element_by_id('btn1')
         sold_out_button.click()
 
-        self.assertNotIn('글쓰기와 말하기', self.browser.find_element_by_tag_name('body').text)
-        self.assertNotIn('10000', self.browser.find_element_by_tag_name('body').text)
+        # 취소선이 그어진 것을 확인한다.
+        self.assertIn('글쓰기', self.browser.find_element_by_class_name('redline').text)
