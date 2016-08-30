@@ -19,6 +19,7 @@ from django.contrib import admin
 from wef.views import *
 from users.views import *
 from items.views import *
+from items.api.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -32,7 +33,9 @@ urlpatterns = [
     url(r'^booksale/$', BookSale.as_view(), name='booksale'),
     url(r'^booksale/(?P<pk>\d+)/$', PostDetail.as_view(), name='postdetail'),
 
+    url(r'^api/(?P<pk>\d+)/soldout/$', BookListAPIView.as_view(), name='booklistapi'),
+
     url(r'^aftersocial/$', AfterSocial.as_view(), name='aftersocial'),
 
-    url(r'', include('social.apps.django_app.urls', namespace='social'))
+    url(r'', include('social.apps.django_app.urls', namespace='social')),
 ]
