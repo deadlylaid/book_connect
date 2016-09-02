@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}남서울 도서공유{% endblock %}
+
+{% block body %}
+<div>남서울도서공유 홈</div>
+<br>
+<br>
+<br>
+{% for post in posts %}
+<div>
+  <div>제목: <a href="{% url "postdetail" post.id %}">{{post.title}}</a></div>
+  <div>글쓴이:{{post.user.nickname}}</div>
+  <div>날짜:{{post.updated_at}}</div>
+</div>
+<br>
+<br>
+{% endfor %}
+<p>
+	end_index : {{ posts.end_index }}
+</p>
+<p>
+	has_next : {{ posts.has_next }}
+</p>
+<p>
+	end_has_other_pages : {{ posts.has_other_pages }}
+</p>
+<p>
+	has_previous : {{ posts.has_previous }}
+</p>
+
+<p>
+	paginator.count : {{ posts.paginator.count }}
+</p>
+<p>
+	paginator.validate_number : {{ posts.paginator.validate_number }}
+</p>
+<nav>
+	<ul>
+		{% if posts.has_previous %}
+			<li>
+				<a href='/lists/?page={{ posts.previous_page_number }}'> 이전 </a>
+			</li>
+		{% endif %}
+		{% for page_index in posts.paginator.page_range %}
+			{% if posts.number == page_index %}
+				<li>
+					{{ page_index }}
+				</li>
+			{% else %}
+				<li>
+					<a href='/lists/?page={{ page_index }}'>{{ page_index }}</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+		{% if posts.has_next %}
+			<li>
+				<a href='/lists/?page={{ posts.next_page_number }}'> 다음 </a>
+			</li>
+		{% endif %}
+	</ul>
+</nav>
+{% endblock %}
