@@ -8,6 +8,11 @@ class ItemPost(models.Model):
             settings.AUTH_USER_MODEL,
             )
 
+    def user_nickname_def(self):
+        return self.user.nickname
+
+    user_nickname = property(user_nickname_def)
+
     title = models.TextField(
             )
 
@@ -21,3 +26,7 @@ class ItemPost(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = '포스트'
+        verbose_name_plural = verbose_name

@@ -3,6 +3,7 @@ from .item_post import ItemPost
 
 
 class BookList(models.Model):
+    # post + booknumber => primarykey로 쓰인다
 
     post = models.ForeignKey(
             "ItemPost",
