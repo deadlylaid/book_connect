@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 
+
 class LogInView(View):
 
     def get(self, request):
