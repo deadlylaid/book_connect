@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}판매 등록{% endblock %}
+{% block body %}
+<body>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <p>제목</p>
+    <input type="text" name="title" placeholder="제목" required>
+   
+    <p>판매할 도서</p>
+    <input type="text" name="bookname" placeholder="도서 이름">
+    <p>가격</p>
+    <input type="text" name="bookprice" placeholder="가격">
+    
+    <input type='button' name="addlist" value="추가">
+
+    <ul class="booklist">
+    </ul>
+
+    <input type="submit" id='button'>
+
+    <ul class="hiddenlist">
+    </ul> 
+  </form>
+</body>
+{% endblock %}
+
+{% block js %}
+<script src="{% static "js/booksale.js" %}" type="text/javascript"></script>
+{% endblock %}

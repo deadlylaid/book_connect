@@ -2,11 +2,19 @@ from django.views.generic import View
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth import login, authenticate
+from django.contrib import messages
 
 
 class LogInView(View):
 
     def get(self, request):
+        if request.GET.get('next', ''):
+            messages.add_message(
+                    request,
+                    messages.WARNING,
+                    "로그인을 해야 이용하실 수 있는 서비스입니다."
+                    )
+
         return render(
                 request,
                 'users/login.html',

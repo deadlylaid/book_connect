@@ -18,6 +18,8 @@ from django.contrib import admin
 
 from wef.views import *
 from users.views import *
+from items.views import *
+from items.api.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,6 +29,16 @@ urlpatterns = [
     url(r'^joinus/$', join_us, name='join_us'),
     url(r'^login/$', LogInView.as_view(), name='log_in'),
     url(r'^logout/$', LogOutView.as_view(), name='log_out'),
+
+    url(r'^lists/$', PostList.as_view(), name='postlists'),
+    url(r'^search/$', SearchView.as_view(), name='postsearch'),
+
+    url(r'^booksale/$', BookSale.as_view(), name='booksale'),
+    url(r'^booksale/(?P<pk>\d+)/$', PostDetail.as_view(), name='postdetail'),
+
+    url(r'^api/(?P<pk>\d+)/soldout/$', BookListAPIView.as_view(), name='booklistapi'),
+
     url(r'^aftersocial/$', AfterSocial.as_view(), name='aftersocial'),
-    url(r'', include('social.apps.django_app.urls', namespace='social'))
+
+    url(r'', include('social.apps.django_app.urls', namespace='social')),
 ]

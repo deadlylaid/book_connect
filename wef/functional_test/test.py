@@ -1,9 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -57,5 +57,5 @@ class NewVisitorTest(LiveServerTestCase):
 
         self.assertIn('회원가입', self.browser.find_element_by_tag_name('body').text)
 
-        # 갑자기 하기싫어져 강종해버린다.
-        self.fail('테스트가 문제없이 통과되었습니다.')
+        # 웹 페이지는 헤더가 '남서울 도서공유'를 표시하고 있다.
+        self.assertIn('남서울 도서공유', self.browser.title)

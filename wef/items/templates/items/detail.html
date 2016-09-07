@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}상세 페이지{% endblock %}
+{% block css %}
+<style type="text/css">
+    .redline{
+        text-decoration: line-through;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<body>
+  <p>제목</p>
+  <p>{{ post.title }}<p>
+  <p>판매할 도서</p>
+    <ul class="booklist">
+        {% for bookname in post.booklist_set.all %}
+          {% if not bookname.is_soldout %}
+          <li id='list{{ forloop.counter }}'>{{ bookname.bookname }}({{ bookname.bookprice }}원) {% if request.user.username == post.user.username %}<input type='button' id='btn{{ forloop.counter }}' value='sold out'>{% else %} <input type='button' id='msg{{ forloop.counter }}' value='문자보내기'>{% endif %} </li>
+          {% else %}
+          <li id='list{{ forloop.counter }}' class='redline'>{{ bookname.bookname }}({{ bookname.bookprice }}원) {% if request.user.username == post.user.username %}<input type='button' id='btn{{ forloop.counter }}' value='번복하기'>{% endif %}<input type='text' value='이미 판매된 도서입니다' disabled> </li>
+          {% endif %}
+          {% if forloop.last %}<div class='data' data-list-num={{ forloop.counter }} data-post-id={{ post.id }}></div> {% endif %} 
+      {% endfor %}
+    </ul>
+</body>
+{% endblock %}
+
+{% block js %}
+<script src="{% static "js/detail.js" %}" type="text/javascript"></script>
+{% endblock %}

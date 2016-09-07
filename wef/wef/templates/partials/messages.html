@@ -1,0 +1,7 @@
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <div><strong>Warning!</strong> {{ message }} </div>
+    {% endfor %}
+  </ul>
+{% endif %}

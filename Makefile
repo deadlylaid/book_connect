@@ -13,5 +13,5 @@ unnit:
 	python wef/manage.py test users
 
 migrate:
-	python wef/manage.py makemigrations users
+	python wef/manage.py makemigrations users items
 	python wef/manage.py migrate
