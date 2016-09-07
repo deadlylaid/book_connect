@@ -5,17 +5,28 @@
 {% block body %}
 <div>남서울도서공유 홈</div>
 <br>
+    <form action="{% url "postsearch" %}" method="get" class="search">
+		<input type="text" name="keyword" placeholder="제목만 검색됩니다">
+		<input type="submit" value="검색">
+	</form>
 <br>
 <br>
-{% for post in posts %}
-<div>
-  <div>제목: <a href="{% url "postdetail" post.id %}">{{post.title}}</a></div>
-  <div>글쓴이:{{post.user.nickname}}</div>
-  <div>날짜:{{post.updated_at}}</div>
-</div>
-<br>
-<br>
-{% endfor %}
+{% if posts %}
+	{% for post in posts %}
+		<div>
+		  <div>제목: <a href="{% url "postdetail" post.id %}">{{ post.title }}</a></div>
+		  <div>글쓴이:{{ post.user.nickname }}</div>
+		  <div>날짜:{{ post.updated_at }}</div>
+		</div>
+		<br>
+		<br>
+	{% endfor %}
+{% else %}
+	<div>
+		<p><strong>"{{ keyword }}"</strong>에 대한 검색 결과가 없습니다.</p>
+	</div>
+{% endif %}
+
 
 <nav>
 	<ul>

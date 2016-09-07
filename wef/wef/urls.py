@@ -31,7 +31,7 @@ urlpatterns = [
     url(r'^logout/$', LogOutView.as_view(), name='log_out'),
 
     url(r'^lists/$', PostList.as_view(), name='postlists'),
-    url(r'^lists/search/$', SearchView.as_view(), name='postsearch'),
+    url(r'^search/$', SearchView.as_view(), name='postsearch'),
 
     url(r'^booksale/$', BookSale.as_view(), name='booksale'),
     url(r'^booksale/(?P<pk>\d+)/$', PostDetail.as_view(), name='postdetail'),
