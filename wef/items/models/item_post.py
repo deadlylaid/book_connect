@@ -8,6 +8,7 @@ class ItemPost(models.Model):
             settings.AUTH_USER_MODEL,
             )
 
+    # it will used item admin
     def user_nickname_def(self):
         return self.user.nickname
 
