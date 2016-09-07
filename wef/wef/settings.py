@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_extensions',
 
     'rest_framework',
+    'watson',
 
     'wef',
     'users',
