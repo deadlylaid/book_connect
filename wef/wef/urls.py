@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^login/$', LogInView.as_view(), name='log_in'),
     url(r'^logout/$', LogOutView.as_view(), name='log_out'),
 
-    url(r'^lists/$', PostList.as_view(), name='postlists'),
+    url(r'^lists/$', PostList.as_view(), name='postlist'),
     url(r'^search/$', SearchView.as_view(), name='postsearch'),
 
     url(r'^booksale/$', BookSale.as_view(), name='booksale'),
