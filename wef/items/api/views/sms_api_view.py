@@ -15,6 +15,6 @@ class SendBuySMSAPIView(APIView):
     def post(self, request, *args, **kwargs):
 
         sms = SendBuyMessageTask()
-        sms.run()
+        sms.delay()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
