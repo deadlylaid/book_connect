@@ -56,13 +56,19 @@
             var msg = '#list'+msg_number
             var book = $(msg).text();
             var bookname = book.split('(')[0];
+
+            // post_id값으로 해당 포스트를 올린 유저를 알기위해
+            $post_id = $(".data").data("postId");
             
             var send_check = confirm("문자 전송시 회원님의 휴대폰번호는 판매자에게 제공됩니다. 계속 하시겠습니까?")
                 if (send_check == true){
                     $.ajax({
                         url:'/api/sendbuysms/',
                         method:'POST',
-                        data:{bookname : bookname,},
+                        data:{
+                            bookname : bookname,
+                            post_id : $post_id,
+                        },
                         success: function(received_data){
                             alert("문자를 보냈다")
                         }
