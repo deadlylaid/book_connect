@@ -55,4 +55,4 @@ class OurClientCanSendSMSIfBuyBook(StaticLiveServerTestCase):
         # 마음에 드는 중고책이 있어서 판매자에게 문자를 보낸다
         self.browser.find_element_by_id('msg1').click()
         # 문자가 보내지기 전에 알림창으로 휴대폰번호 제공 공지가 뜬다
-        # 확인버튼을 누르면 문자가 날아간다.
+        # 확인버튼을 누르면 문자가 날아간다.(테스트할때는 확인버튼을 누르지 않음)
