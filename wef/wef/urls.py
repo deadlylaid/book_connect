@@ -30,12 +30,13 @@ urlpatterns = [
     url(r'^login/$', LogInView.as_view(), name='log_in'),
     url(r'^logout/$', LogOutView.as_view(), name='log_out'),
 
-    url(r'^lists/$', PostList.as_view(), name='postlists'),
+    url(r'^lists/$', PostList.as_view(), name='postlist'),
     url(r'^search/$', SearchView.as_view(), name='postsearch'),
 
     url(r'^booksale/$', BookSale.as_view(), name='booksale'),
     url(r'^booksale/(?P<pk>\d+)/$', PostDetail.as_view(), name='postdetail'),
 
+    url(r'^api/sendbuysms/$', SendBuySMSAPIView.as_view(), name='sendsms'),
     url(r'^api/(?P<pk>\d+)/soldout/$', BookListAPIView.as_view(), name='booklistapi'),
 
     url(r'^aftersocial/$', AfterSocial.as_view(), name='aftersocial'),

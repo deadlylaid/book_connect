@@ -20,8 +20,24 @@ class PostList(View):
 
         posts = paginator.page(page)
 
+        # 페이지 리스트 커스터마이징
+        page_list = []
+        for page_number in posts.paginator.page_range:
+            if page_number == 1 or (page_number-2) <= posts.number <= (page_number+2) \
+                    or page_number == posts.paginator.count:
+                page_list.append(page_number)
+                print(page_list)
+            else:
+                if page_list[-1] == '...':
+                    print(page_list)
+                    continue
+                else:
+                    page_list.append('...')
+                    print(page_list)
+
         context = {
                 "posts": posts,
+                "page_list": page_list,
                 }
         return render(
                request,

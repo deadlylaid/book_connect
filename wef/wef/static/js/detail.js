@@ -14,13 +14,7 @@
             // 책 이름을 잡기위해 li태그의 id를 잡는다
             var list = '#list'+number
             var list_book = $(list).text();
-
             var cancel = 'cancel'+number;
-
-            //bookname만 따로 잡기위해, bookprice를 따로잡기위해
-            //var bookname = list_book.split('(')[0];
-            //var bookprice = list_book.split('(')[1].substring(list_book.split('(')[1].length-3,list_book.split('(')[1]);
-
              
             console.log("책이름과 가격 = "+list_book)
             console.log("post_id = "+$post_id)
@@ -29,7 +23,7 @@
 
             $.ajax({
                 url: api_url,
-                type:'PUT',
+                method :'PUT',
                 data:{
                          post_id: $post_id,
                          book_list_id: number,
@@ -45,12 +39,50 @@
                                 $(list).removeClass("redline");
                                 $(button).val("sold out");
                             }
-
                         }
             });
-
         });
+
+
+
+
+        $("[id^=msg]").on('click', function(event){
+            //id 값을 잡는다
+            var msg_button_id = $(this).attr("id");
+            var msg_button = $(this);
+            var msg_number = msg_button_id.replace("msg", "");
+
+            // 책 이름을 잡기위해 li태그의 id를 잡는다
+            var msg = '#list'+msg_number
+            var book = $(msg).text();
+            var bookname = book.split('(')[0];
+
+            // post_id값으로 해당 포스트를 올린 유저를 알기위해
+            $post_id = $(".data").data("postId");
+            
+            var send_check = confirm("문자 전송시 회원님의 휴대폰번호는 판매자에게 제공됩니다. 계속 하시겠습니까?")
+                if (send_check == true){
+                    $.ajax({
+                        url:'/api/sendbuysms/',
+                        method:'POST',
+                        data:{
+                            bookname : bookname,
+                            post_id : $post_id,
+                        },
+                        success: function(received_data){
+                            alert("문자를 보냈다")
+                        }
+                    });
+                } else {
+                    alert("취소버튼을 눌렀다");
+                }
+            });
+
 
     });
 
 })();
+
+//bookname만 따로 잡기위해, bookprice를 따로잡기위해
+//var bookname = list_book.split('(')[0];
+//var bookprice = list_book.split('(')[1].substring(list_book.split('(')[1].length-3,list_book.split('(')[1]);

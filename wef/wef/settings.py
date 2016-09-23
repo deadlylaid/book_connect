@@ -180,3 +180,6 @@ STATICFILES_DIRS = [
         ]
 
 AUTH_USER_MODEL = 'users.User'
+
+# Celery Broker Init
+BROKER_URL = 'redis://localhost:6379/0'
