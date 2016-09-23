@@ -30,11 +30,13 @@
 
 <nav>
 	<ul>
+		{# "comment -1" 만약 이전이 있다면 이전을 표시한다 #}
 		{% if posts.has_previous %}
 			<li>
 				<a href='/lists/?page={{ posts.previous_page_number }}'> 이전 </a>
 			</li>
 		{% endif %}
+		{# "comment -1" END #}
 		{% for page_index in posts.paginator.page_range %}
 			{% if posts.number == page_index %}
 				<li>
@@ -46,11 +48,42 @@
 				</li>
 			{% endif %}
 		{% endfor %}
+		{# "comment -2" 만약 다음이 있다면 다음을 표시한다 #}
 		{% if posts.has_next %}
 			<li>
 				<a href='/lists/?page={{ posts.next_page_number }}'> 다음 </a>
 			</li>
 		{% endif %}
+		{# "comment -2" END #}
+	</ul>
+</nav>
+
+
+<nav>
+	<ul>
+	{# "comment -1" 만약 이전이 있다면 이전을 표시한다 #}
+		{% if posts.has_previous %}
+			<li>
+				<a href='/lists/?page={{ posts.previous_page_number }}'> 이전 </a>
+			</li>
+		{% endif %}
+		{# "comment -1" END #}
+
+		{% for page_number in page_list %}
+			{% if page_number == "..." or page_number == posts.number %}
+				<li>{{ page_number }}</li>
+			{% else %}
+				<li><a href='/lists/?page={{ page_number }}'>{{ page_number }}</a></li>
+			{% endif %}
+		{% endfor %}	
+
+		{# "comment -1" 만약 이전이 있다면 이전을 표시한다 #}
+		{% if posts.has_previous %}
+			<li>
+				<a href='/lists/?page={{ posts.previous_page_number }}'> 이전 </a>
+			</li>
+		{% endif %}
+		{# "comment -1" END #}
 	</ul>
 </nav>
 {% endblock %}
