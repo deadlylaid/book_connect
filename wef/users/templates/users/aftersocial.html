@@ -6,15 +6,15 @@
 <body>
 <p> 회원가입이 완료되었습니다!</p>
 
-<p>당신의 닉네임을 만들어주세요!<p>
+<p>당신의 닉네임과 휴대폰 번호를 적어주세요!<p>
+
 
 <form action="" method="POST">
   {% csrf_token %}
-  <input type="textbox" name="nickname" placeholeder="닉네임" required>
-  <input type="tel" name="phonenumber" placeholeder="전화번호">
+  <input type="textbox" name="nickname" placeholder="닉네임설정" required>
+  <input type="tel" name="phonenumber" placeholder="전화번호">
   <input type="submit" id="button">
 
 </form>
-
 </body>
 {% endblock %}
