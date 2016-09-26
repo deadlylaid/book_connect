@@ -17,20 +17,22 @@ def join_us(request):
 
     elif request.method == "POST":
         username = request.POST.get("username")
-        phone = request.POST.get("phone")
+        checkpassword = request.POST.get("checkpassword")
         password = request.POST.get("password")
 
-        created_user = User.objects.create_user(
-                username=username,
-                password=password,
-                phone=phone,
-                )
+        if checkpassword == password:
+            created_user = User.objects.create_user(
+                    username=username,
+                    password=password,
+                    )
 
-        created_user = authenticate(
-                username=username,
-                password=password,
-                )
+            created_user = authenticate(
+                    username=username,
+                    password=password,
+                    )
 
-        login(request, created_user)
+            login(request, created_user)
 
-        return redirect(reverse("aftersocial"))
+            return redirect(reverse("aftersocial"))
+
+        return redirect(reverse("join_us"))

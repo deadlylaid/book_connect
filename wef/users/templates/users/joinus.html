@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-
 {% block title %}회원가입창{% endblock %}
 {% block body %}
 <body>
@@ -9,15 +8,17 @@
     <p>회원 아이디 </p>
     <input type="text" name="username" placeholder="닉네임설정" required>
     <p>비밀번호</p>
-    <input type="text" name="password" placeholder="비밀번호">
+    <input type="password" name="password" placeholder="비밀번호">
     <p>비밀번호 확인</p>
-    <input type="text" name="checkpassword" placeholder="비밀번호 확인">
+    <input type="password" name="checkpassword" placeholder="비밀번호 확인">
     
     <input type="submit" id='button'>
+
   
   </form>
+  
 </body>
 {% endblock %}
 {% block js %}
-<script src="{% static "js/users/joinus.js" %}" type="text/javascript"></script>
+  <script src="{% static "js/users/joinus.js" %}"></script>
 {% endblock %}
