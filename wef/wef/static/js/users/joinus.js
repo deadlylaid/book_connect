@@ -14,6 +14,30 @@
             $pw_message.text('비밀번호와 일치하였습니다.')
         };
     });
+
+    $("[name=username]").focusout(function(){
+        $username = $('input[name=username');
+        alert("efef");
+
+        api_url = "/api/username/check/";
+
+        $.ajax({
+            url:api_url,
+            method:'GET',
+            date:{
+                received_username: $username,
+            },
+            success:function(result){
+                        alert("success");
+                    }
+        
+        });
+
+    
+    
+    });
+
+
 })();
 
 

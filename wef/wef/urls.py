@@ -20,6 +20,7 @@ from wef.views import *
 from users.views import *
 from items.views import *
 from items.api.views import *
+from users.api.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -36,6 +37,7 @@ urlpatterns = [
     url(r'^booksale/$', BookSale.as_view(), name='booksale'),
     url(r'^booksale/(?P<pk>\d+)/$', PostDetail.as_view(), name='postdetail'),
 
+    url(r'^api/username/check/$', CheckOverlapUsername.as_view(), name='checkusername'),
     url(r'^api/sendbuysms/$', SendBuySMSAPIView.as_view(), name='sendsms'),
     url(r'^api/(?P<pk>\d+)/soldout/$', BookListAPIView.as_view(), name='booklistapi'),
 
