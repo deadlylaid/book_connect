@@ -7,11 +7,11 @@
     {% csrf_token %}
     <p>회원 아이디 </p>
     <input type="text" name="username" placeholder="닉네임설정" required>
-    <div>회원 아이디를 입력해주세요</div>
+    <div id="check_username">회원 아이디를 입력해주세요</div>
     <p>비밀번호</p>
-    <input type="password" name="password" placeholder="비밀번호">
+    <input type="password" name="password" placeholder="비밀번호" required>
     <p>비밀번호 확인</p>
-    <input type="password" name="checkpassword" placeholder="비밀번호 확인">
+    <input type="password" name="checkpassword" placeholder="비밀번호 확인" required>
     <div><label id="pw_message">비밀번호와 똑같이 입력해주세요</label></div>
 
     <input type="submit" id='button'>

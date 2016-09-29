@@ -16,19 +16,25 @@
     });
 
     $("[name=username]").focusout(function(){
-        $username = $('input[name=username');
-        alert("efef");
+        $username = $('input[name=username').val();
+
+        console.log($username)
 
         api_url = "/api/username/check/";
 
         $.ajax({
             url:api_url,
-            method:'GET',
-            date:{
+            method:'POST',
+            data:{
                 received_username: $username,
             },
             success:function(result){
-                        alert("success");
+                        $check_username = $('#check_username')
+                        if(result.overlap==true){
+                            $check_username.text('이미 존재하는 아이디입니다')
+                        }else{
+                            $check_username.text('멋진 아이디입니다!')
+                        }
                     }
         
         });
