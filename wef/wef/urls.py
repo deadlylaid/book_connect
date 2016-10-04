@@ -38,6 +38,9 @@ urlpatterns = [
     url(r'^booksale/(?P<pk>\d+)/$', PostDetail.as_view(), name='postdetail'),
 
     url(r'^api/username/check/$', CheckOverlapUsername.as_view(), name='checkusername'),
+    url(r'^api/token/check/$', CheckToken.as_view(), name='checktoken'),
+    url(r'^api/phonenumber/sms/check/$', PhoneNumberCheck.as_view(), name='sendsms'),
+
     url(r'^api/sendbuysms/$', SendBuySMSAPIView.as_view(), name='sendsms'),
     url(r'^api/(?P<pk>\d+)/soldout/$', BookListAPIView.as_view(), name='booklistapi'),
 

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block title %}남서울 도서공유{% endblock %}
 
@@ -6,15 +7,24 @@
 <body>
 <p> 회원가입이 완료되었습니다!</p>
 
-<p>당신의 닉네임과 휴대폰 번호를 적어주세요!<p>
+<p>이제 거의 다 왔어요!<p>
 
 
 <form action="" method="POST">
   {% csrf_token %}
+  <p>우리가 당신을 어떻게 부르면 좋을까요?</p>
   <input type="textbox" name="nickname" placeholder="닉네임설정" required>
-  <input type="tel" name="phonenumber" placeholder="전화번호">
+  <p>당신의 휴대폰 번호를 입력해주세요!</p>
+  <input type="tel" name="phonenumber" placeholder=" '-' 없이 입력해주세요" required>
+
+  <input type="button" id="check_phone_button" value="인증번호발송">   
+  <br>
+  <div id="auth"></div>
   <input type="submit" id="button">
 
 </form>
 </body>
+{% endblock %}
+{% block js %}
+<script src="{% static "js/users/aftersocial.js" %}"></script>
 {% endblock %}
