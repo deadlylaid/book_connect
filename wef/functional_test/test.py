@@ -28,10 +28,10 @@ class NewVisitorTest(StaticLiveServerTestCase):
         # 그리고 회원가입 버튼을 누른다
         username_box = self.browser.find_element_by_name('username')
         password_box = self.browser.find_element_by_name('password')
-        phone_box = self.browser.find_element_by_name('phone')
+        checkpassword_box = self.browser.find_element_by_name('checkpassword')
 
         username_box.send_keys('MyTestID')
-        phone_box.send_keys('01011111111')
+        checkpassword_box.send_keys('123')
         password_box.send_keys('123')
 
         self.browser.find_element_by_id('button').click()

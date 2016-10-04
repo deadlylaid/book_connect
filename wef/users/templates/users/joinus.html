@@ -1,21 +1,26 @@
 {% extends "base.html" %}
-
+{% load staticfiles %}
 {% block title %}회원가입창{% endblock %}
 {% block body %}
 <body>
   <form action="" method="POST">
     {% csrf_token %}
-    <p>Username</p>
+    <p>회원 아이디 </p>
     <input type="text" name="username" placeholder="닉네임설정" required>
-    <p>phoenumber</p>
-    <input type="text" name="phone" placeholder=" '-'을 빼고 입력해 주세요" required>
-    <p>Password</p>
-    <input type="text" name="password" placeholder="비밀번호">
-    
+    <div id="check_username">회원 아이디를 입력해주세요</div>
+    <p>비밀번호</p>
+    <input type="password" name="password" placeholder="비밀번호" required>
+    <p>비밀번호 확인</p>
+    <input type="password" name="checkpassword" placeholder="비밀번호 확인" required>
+    <div><label id="pw_message">비밀번호와 똑같이 입력해주세요</label></div>
+
     <input type="submit" id='button'>
 
   
   </form>
   
 </body>
+{% endblock %}
+{% block js %}
+  <script src="{% static "js/users/joinus.js" %}"></script>
 {% endblock %}

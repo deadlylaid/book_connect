@@ -17,6 +17,16 @@ class User(AbstractUser):
             blank=True,
             )
 
+    certification_code = models.CharField(
+            max_length=4,
+            null=True,
+            blank=True,
+            )
+
+    passed_certification = models.BooleanField(
+            default=False,
+            )
+
     class Meta:
         verbose_name = '유저'
         verbose_name_plural = verbose_name
