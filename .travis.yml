@@ -2,10 +2,18 @@ language: python
 
 python:
     - "3.5.1"
+addons:
+    postgresql:"9.5.1"
 
 install: 
     - pip install -r requirement/development.txt
 
+before_script:
+    - psql -c 'CREATE DATABASE bookconnect;' -U postgres
+    - createuser hanminsoo
+
 # # command to run tests
 script:
     - pep8
+    - python wef/manage.py makemigrations users items
+    - python wef/manage.py migrate
