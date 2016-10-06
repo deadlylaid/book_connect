@@ -14,6 +14,7 @@ postgres:
     database: myapp_test
     username: postgres
     before_script:
+        - createuser hanminsoo
         - "psql -c 'create database myapp_test;' -U postgres"
         - "rake db:migrate"
 
