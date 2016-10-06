@@ -38,19 +38,29 @@ PIPELINE = {
             ),
             'output_filename': 'js/csrf_token.js',
         },
-        'items': {
+        'booksale': {
             'source_filenames': (
                 'js/booksale.js',
+            ),
+            'output_filename': 'js/booksale.js',
+        },
+        'detail': {
+            'source_filenames': (
                 'js/detail.js',
             ),
-            'output_filename': 'js/items.js',
+            'output_filename': 'js/detail.js',
         },
-        'users': {
+        'aftersocial': {
             'source_filenames': (
                 'js/users/aftersocial.js',
+            ),
+            'output_filename': 'js/users/aftersocial.js',
+        },
+        'joinus': {
+            'source_filenames': (
                 'js/users/joinus.js',
             ),
-            'output_filename': 'js/users/users.js',
+            'output_filename': 'js/users/joinus.js',
         },
     }
 }
