@@ -12,4 +12,4 @@ before_script:
 # # command to run tests
 script:
     - pep8
-    - python wef/manage.py test functional_test
+    - python wef/manage.py test users
