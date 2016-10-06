@@ -11,7 +11,7 @@ services:
 
 before_script:
     - createuser hanminsoo
-    - psql -c 'create database bookconnect;' -U hanminsoo
+    - psql -c 'create database travis_ci_test;' -U postgres
 
 # # command to run tests
 script:
