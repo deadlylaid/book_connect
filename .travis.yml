@@ -6,8 +6,12 @@ python:
 install: 
     - pip install -r requirement/development.txt
 
+services:
+    - postgresql
+
 before_script:
     - createuser hanminsoo
+    - psql -c 'create database bookconnect;' -U hanminsoo
 
 # # command to run tests
 script:
