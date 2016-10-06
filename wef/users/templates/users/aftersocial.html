@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load pipeline %}
 
 {% block title %}남서울 도서공유{% endblock %}
 
@@ -26,5 +26,5 @@
 </body>
 {% endblock %}
 {% block js %}
-<script src="{% static "js/users/aftersocial.js" %}"></script>
+{% javascript 'aftersocial' %}
 {% endblock %}

@@ -2,3 +2,5 @@ django==1.9.7
 python-social-auth
 djangorestframework==3.4.5
 celery[redis]
+psycopg2==2.6.2
+django-pipeline==1.6.9
