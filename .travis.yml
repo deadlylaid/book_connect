@@ -7,7 +7,6 @@ install:
     - pip install -r requirement/development.txt
 
 before_script:
-    - sudo psql -c  'create database bookconnect' -U postgres
     - createuser hanminsoo
 
 # # command to run tests
