@@ -72,4 +72,4 @@ class OurClientCreateItemTest(StaticLiveServerTestCase):
         sold_out_button.click()
 
         # 취소선이 그어진 것을 확인한다.
-        self.assertIn('글쓰기', self.browser.find_element_by_class_name('redline').text)
+        self.assertIn('필요없는', self.browser.find_element_by_class_name('redline').text)
