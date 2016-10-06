@@ -6,19 +6,6 @@ python:
 install: 
     - pip install -r requirement/development.txt
 
-services:
-    - postgresql
-
-postgres:
-    adapter: postgresql
-    database: myapp_test
-    username: postgres
-    before_script:
-        - createuser hanminsoo
-        - "psql -c 'create database myapp_test;' -U postgres"
-        - "rake db:migrate"
-
 # # command to run tests
 script:
     - pep8
-    - python wef/manage.py test users
