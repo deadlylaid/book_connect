@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load pipeline %}
 {% block title %}회원가입창{% endblock %}
 {% block body %}
 <body>
@@ -22,5 +22,5 @@
 </body>
 {% endblock %}
 {% block js %}
-  <script src="{% static "js/users/joinus.js" %}"></script>
+{% javascript 'joinus' %}
 {% endblock %}
