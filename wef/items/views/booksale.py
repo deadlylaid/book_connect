@@ -12,11 +12,19 @@ class BookSale(LoginRequiredMixin, View):
 
     def get(self, request):
 
+        if request.user.phone:
+
+            return render(
+                   request,
+                   'items/booksale.html',
+                   context={}
+                   )
+
         return render(
-               request,
-               'items/booksale.html',
-               context={}
-               )
+                request,
+                'users/aftersocial.html',
+                context={}
+                )
 
     def post(self, request):
 
