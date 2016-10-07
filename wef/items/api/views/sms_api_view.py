@@ -19,9 +19,17 @@ class SendBuySMSAPIView(APIView):
 
         buyer_nickname = request.user.nickname
         buyer_phone = request.user.phone
-        selected_bookname = request.data.get('bookname')
 
-        sms = SendBuyMessageTask()
-        sms.delay(buyer_nickname, buyer_phone, saler_phone, selected_bookname)
+        if buyer_phone:
+            selected_bookname = request.data.get('bookname')
 
-        return Response(status=status.HTTP_204_NO_CONTENT)
+            sms = SendBuyMessageTask()
+            sms.delay(buyer_nickname, buyer_phone, saler_phone, selected_bookname)
+
+            response_data = {}
+            response_data['send'] = True
+            return Response(status=status.HTTP_204_NO_CONTENT)
+
+        response_data = {}
+        response_data['send'] = False
+        return Response(response_data, status=status.HTTP_200_OK)
