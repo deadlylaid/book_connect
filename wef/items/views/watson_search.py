@@ -1,5 +1,6 @@
 from django.views.generic import View
 from django.shortcuts import render
+from watson import search as watson
 from items.models import ItemPost
 
 
@@ -10,9 +11,7 @@ class SearchView(View):
         keyword = request.GET.get("keyword")
 
         if keyword:
-            search_result = ItemPost.objects.filter(
-                    title=keyword,
-                    )
+            search_result = watson.filter(ItemPost, keyword)
 
             if search_result:
                 context = {
