@@ -43,9 +43,6 @@
             });
         });
 
-
-
-
         $("[id^=msg]").on('click', function(event){
             //id 값을 잡는다
             var msg_button_id = $(this).attr("id");
@@ -61,22 +58,27 @@
             $post_id = $(".data").data("postId");
             
             var send_check = confirm("문자 전송시 회원님의 휴대폰번호는 판매자에게 제공됩니다. 계속 하시겠습니까?")
-                if (send_check == true){
-                    $.ajax({
-                        url:'/api/sendbuysms/',
-                        method:'POST',
-                        data:{
-                            bookname : bookname,
-                            post_id : $post_id,
-                        },
-                        success: function(received_data){
-                            alert("문자를 보냈다")
+                
+            if (send_check == true){
+                $.ajax({
+                    url:'/api/sendbuysms/',
+                    method:'POST',
+                    data:{
+                        bookname : bookname,
+                        post_id : $post_id,
+                    },
+                    success: function(received_data){
+                        if(received_data.send==true){  
+                            alert("문자를 보냈습니다.");
+                        }else{
+                            alert("휴대폰 번호를 등록하지 않아서 문자를 보낼 수 없습니다.");
                         }
-                    });
-                } else {
-                    alert("취소버튼을 눌렀다");
-                }
-            });
+                    }
+                });
+            } else {
+                alert("취소버튼을 눌렀다");
+            }
+        });
 
 
     });
