@@ -46,10 +46,10 @@
 			{% endif %}
 		{% endfor %}	
 
-		{# "comment -1" 만약 이전이 있다면 이전을 표시한다 #}
-		{% if posts.has_previous %}
+		{# "comment -1" 만약 다음이 있다면 다음을 표시한다 #}
+		{% if posts.has_next %}
 			<li>
-				<a href='/lists/?page={{ posts.previous_page_number }}'> 이전 </a>
+				<a href='/lists/?page={{ posts.next_page_number }}'> 다음 </a>
 			</li>
 		{% endif %}
 		{# "comment -1" END #}
