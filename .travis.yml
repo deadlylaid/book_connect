@@ -19,4 +19,4 @@ script:
     - pep8
     - python wef/manage.py makemigrations users items
     - python wef/manage.py migrate
-    - python wef/manage.py test functional_test
+    - python wef/manage.py test users
