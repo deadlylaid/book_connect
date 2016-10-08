@@ -13,6 +13,8 @@ before_script:
     - createuser hanminsoo
     - psql -c 'GRANT ALL PRIVILEGES ON DATABASE bookconnect TO hanminsoo;' -U postgres
     - psql -c 'ALTER USER hanminsoo CREATEDB;' -U postgres
+    - npm -g install yuglify
+    - npm install yuglify
 
 # # command to run tests
 script:
