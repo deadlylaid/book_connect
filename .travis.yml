@@ -10,7 +10,8 @@ install:
 
 before_script:
     - psql -c 'CREATE DATABASE bookconnect;' -U postgres
-    - createuser hanminsoo
+    - psql -c 'CREATE USER hanminsoo WITH PASSWORD "deadlylaid";' -U postgres
+    - psql -c 'GRANT ALL PRIVILEGES ON DATABASE bookconnect TO deadlylaid;' - U postgres
 
 # # command to run tests
 script:
