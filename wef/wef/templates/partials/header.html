@@ -1,33 +1,33 @@
 <header id="header">
 	<nav class="navbar container navbar-dark primary-color navbar-defualt">
-		<a href="/" class="navbar-brand hanna">도서공유::북커넥트</a>
+		
+		<div class="navbar-header">
+			<a href="/" class="navbar-brand hanna">도서공유::북커넥트</a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  </div>
 
-			<div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-	    </div>
-
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					{% if request.user.is_authenticated %}
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				{% if request.user.is_authenticated %}
 				    <!--<p class="hanna">현재 로그인 상태입니다.</p>
 				    <p>{{ request.user.phone }}</p>
 				    <p>{{ request.user.nickname }}</p>-->
-				    <li class="nav-item"><a class="nav-link" href="{% url "log_out" %}" id='log_out'>로그아웃</a></li>
-		    </ul>
-					{% else %}
-				    <li class="nav-item"><a class="nav-link" href="{% url "join_us" %}" id='join_us'>회원가입</a></li>
-				    <li class="nav-item"><a href="{% url "log_in" %}" id='log_in'>로그인</a></li>
-		  	</ul>
+				  <li class="nav-item"><a class="nav-link" href="{% url "log_out" %}" id='log_out'>로그아웃</a></li>
+		  </ul>
+				{% else %}
+				  <li class="nav-item"><a class="nav-link" href="{% url "join_us" %}" id='join_us'>회원가입</a></li>
+				  <li class="nav-item"><a href="{% url "log_in" %}" id='log_in'>로그인</a></li>
+		  </ul>
 					{% endif %}
-				<ul class="nav navbar-nav navbar-left">
-					<li class="nav-item"><a href="{% url "booksale" %}" id='book_sale'>도서등록</a></li>
-					<li class="nav-item"><a href="{% url "postlist" %}" id='post_list'>도서리스트</a></li>
-				</ul>
-			</div>
+			<ul class="nav navbar-nav navbar-left">
+				<li class="nav-item"><a href="{% url "booksale" %}" id='book_sale'>도서등록</a></li>
+				<li class="nav-item"><a href="{% url "postlist" %}" id='post_list'>도서리스트</a></li>
+			</ul>
+		</div>
 	</nav>
 </header>
