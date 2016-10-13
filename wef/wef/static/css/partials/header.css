@@ -1,0 +1,37 @@
+#header {
+    background-color:#007E33;
+}
+
+.navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-brand:hover {
+    color: #ffffff;
+}
+
+.nav>li>a {
+    color: #ffffff;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: #00C851;
+    color: #ffffff;
+}
+
+.navbar-header .navbar-toggle {
+    border-color: #c8e6c9;
+}
+
+.navbar-header .navbar-toggle:hover {
+    background-color: #81c784;
+}
+
+.icon-bar {
+    background-color: #c8e6c9;
+}
+
+@media (min-width: 768px)
+.container {
+    width: 100%;
+}
