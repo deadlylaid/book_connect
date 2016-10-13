@@ -2,11 +2,15 @@
     background-color:#007E33;
 }
 
-a {
-    color:#ffffff;
+.navbar-brand {
+    color: #ffffff;
 }
 
-.navbar>a:hover {
+.navbar-brand:hover {
+    color: #ffffff;
+}
+
+.nav>li>a {
     color: #ffffff;
 }
 
@@ -31,5 +35,3 @@ a {
 .container {
     width: 100%;
 }
-
-
