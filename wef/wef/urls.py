@@ -25,7 +25,7 @@ from users.api.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    url(r'^$', home, name='home'),
+    url(r'^$', Home.as_view(), name='home'),
 
     url(r'^joinus/$', join_us, name='join_us'),
     url(r'^login/$', LogInView.as_view(), name='log_in'),
