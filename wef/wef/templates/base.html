@@ -26,10 +26,11 @@
 <body>
   {% include "partials/header.html" %}
   {% include "partials/messages.html" %}
-
-  {% block body %}
-  {% endblock %}
-
+  
+  <section id="{% block sectionid %}{% endblock %}">
+    {% block body %}
+    {% endblock %}
+  </section>
   {% include "partials/footer.html" %}
 
 </body>
