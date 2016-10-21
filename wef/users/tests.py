@@ -2,7 +2,7 @@ from django.core.urlresolvers import resolve
 from django.test import TestCase
 from django.http import HttpRequest
 
-from wef.views import home
+from wef.views import Home
 
 from users.views import join_us
 from users.models import User
@@ -13,7 +13,7 @@ class HomePageTest(TestCase):
     # home화면에 들어가면 home view를 호출한다.
     def test_root_url_resolves_to_home_view(self):
         found = resolve('/')
-        self.assertEqual(found.func, home)
+        self.assertEqual(found.func.__name__, Home.__name__)
 
     # home url을 입력하면 home.html을 랜더링한다.
     def test_home_page_renders_home_template(self):
