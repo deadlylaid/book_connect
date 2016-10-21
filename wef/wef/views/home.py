@@ -1,11 +1,31 @@
-from django.http import HttpResponse
+from django.views.generic import View
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
+
+from items.models import ItemPost
 
 
-def home(request):
+class Home(View):
 
-    return render(
-            request,
-            'home.html',
-            context={},
-            )
+    def get(self, request):
+
+        page = 1
+        page_per = 5
+
+        paginator = Paginator(
+                ItemPost.objects.order_by('-id'),
+                page_per,
+                )
+
+        posts = paginator.page(page)
+
+        context = {
+                "posts": posts
+                }
+
+        return render(
+                request,
+                'home.html',
+                context,
+                )
