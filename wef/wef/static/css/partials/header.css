@@ -31,7 +31,8 @@
     background-color: #c8e6c9;
 }
 
-@media (min-width: 768px)
+@media (min-width: 768px) {
 .container {
     width: 100%;
+}
 }
