@@ -1,19 +1,67 @@
 {% extends "base.html" %}
 
 {% block title %}로그인{% endblock %}
+
+{% block sectionid %}login{% endblock %}
+
+
 {% block body %}
-<body>
-  <form action="" method="POST">
-    {% csrf_token %}
-    <p>Username</p>
-    <input type="text" name="username" placeholder="ID" required>
-    <p>Password</p>
-    <input type="text" name="password" placeholder="비밀번호" required>
-    
-    <input type="submit" id='button'>
+<div class="container">
+	<section class="col-md-2">
+	</section>	
+
+	<section class="col-md-8">
+		<div class="raw">
+			<div class="explain-text">
+				<h3 class="hanna">남서울대 학생을 위한 중고책 사이트</h3>
+			</div>
+
+			<div class="form-box col-md-8 col-md-offset-2">
+			  <form action="" method="POST">
+			    {% csrf_token %}
+			    <div class="form-group">
+				    <label for="user">아이디를 입력해주세요</label>
+				    <input type="text" maxlength="30" class="form-control" name="username" placeholder="아이디" required>
+			    </div>
+			    <div class="form-group">
+				    <label for="user">비밀번호를 입력해주세요</label>
+				    <input type="password" maxlength="30" class="form-control" name="password" placeholder="비밀번호" required>
+			    </div>
+
+			    <input type="submit" id='button' class="btn btn-default btn-block" value="로그인">
+					
+			  </form>
+				<div class="or-container">
+			    <hr class="hr-line">
+			    <div id="or" >OR</div>
+				</div>
+				
+				<div class="social-comment">
+					<h3 class="hanna">초간단 소셜 로그인</h3>	
+				</div>
+
+				<div class="social-button">
+					<a href="/login/facebook/"class="btn btn-facebook btn-block">
+					<i class="fa fa-facebook" aria-hidden="true"></i>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;페이스북으로 로그인 
+					</a>
+
+					<a href="/login/kakao/" class="btn btn-kakao btn-block">
+						<i class="fa fa-comment" aria-hidden="true"></i>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카카오톡으로 로그인 
+					</a>
+				</div>
+			</div>
+
+	  </div>
+
+
+	</section>
+
+	<section class="col-md-2">
+	</section>	
+
+</div>
 
   
-  </form>
-  
-</body>
 {% endblock %}
