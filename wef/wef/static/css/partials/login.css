@@ -1,0 +1,73 @@
+.explain-text {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 60px;
+    margin-top: 30px;
+}
+
+.btn-default {
+    color: #ffffff;
+    background-color: #007E33;
+    border-color: #007E33;
+    margin: 10px 0 20px;
+    padding: 10px;
+}
+
+.btn-default:hover {
+    color: #ffffff;
+    background-color: #00C851;
+    border-color: #00C851;
+}
+
+.hr-line {
+    position: relative;
+    top: 10px;
+    border-top: 1px solid #94ba98;
+}
+
+#or {
+    position: relative;
+    bottom: 20px;
+    margin-left: 47%;
+    width: 30px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.social-comment {
+    text-align: center;
+    margin: 0 0 30px 0;
+}
+
+.social-button {
+    margin-bottom: 100px;
+}
+.btn-facebook {
+    color: #ffffff;
+    background-color: #3b5998;
+    border-color: #3b5998;
+    margin: 10px 0 20px;
+    padding: 10px;
+}
+
+.btn-facebook:hover {
+    color: #ffffff;
+    background-color: #8b9dc3;
+    border-color: #8b9dc3;
+}
+
+
+.btn-kakao {
+    color: #3F3035;
+    background-color: #FFEA21;
+    border-color: #FFEA21;
+    margin: 10px 0 20px;
+    padding: 10px;
+}
+
+.btn-kakao:hover {
+    color: #3F3035;
+    background-color: #C5AB6A;
+    border-color: #C5AB6A;
+}

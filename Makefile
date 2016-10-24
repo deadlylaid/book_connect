@@ -15,3 +15,6 @@ unnit:
 migrate:
 	python wef/manage.py makemigrations users items
 	python wef/manage.py migrate
+
+collectstatic:
+	python wef/manage.py collectstatic --noinput
