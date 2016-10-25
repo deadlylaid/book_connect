@@ -1,0 +1,8 @@
+.social-button-joinus {
+    margin-bottom: 20px;
+}
+
+.btn-default[disabled]:hover {
+    background-color: #007E33;
+    border-color: #007E33;
+}

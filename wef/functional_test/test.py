@@ -31,8 +31,8 @@ class NewVisitorTest(StaticLiveServerTestCase):
         checkpassword_box = self.browser.find_element_by_name('checkpassword')
 
         username_box.send_keys('MyTestID')
-        checkpassword_box.send_keys('123')
         password_box.send_keys('123')
+        checkpassword_box.send_keys('123')
 
         self.browser.find_element_by_id('button').click()
 
