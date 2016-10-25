@@ -37,6 +37,12 @@ class LogInView(View):
             return redirect(
                     reverse("home")
                     )
+
+        messages.add_message(
+                request,
+                messages.WARNING,
+                "존재하지 않는 회원정보입니다."
+                )
         return redirect(
                 reverse("log_in")
                 )
