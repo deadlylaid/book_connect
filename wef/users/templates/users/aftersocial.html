@@ -4,26 +4,53 @@
 {% block title %}남서울 도서공유{% endblock %}
 
 {% block body %}
-<body>
-<p> 회원가입이 완료되었습니다!</p>
 
-<p>이제 거의 다 왔어요!<p>
+<div class="container">
+	<section class="cal-md-2"></section>
+
+	<section class="cal-md-8">
+
+		<div class="title-comment">
+		<h3 class="hanna">회원가입이 완료되었습니다!</h3>
+		<h3 class="hanna">이제 거의 다 왔어요!</h3>
+		</div>
+
+		<div class="form-box col-md-4 col-md-offset-4">
+			
+
+			<form action="" method="POST">
+			  {% csrf_token %}
+			  <div class="form-group">
+			  <label for="nickname">
+				  우리가 당신을 어떻게 부르면 좋을까요?
+			  </label>
+				  <input type="textbox" class="form-control" name="nickname" placeholder="닉네임설정" required>	
+			  </div>
+				<div class="form-group">
+					<label for="phone">
+					  휴대폰번호를 통해 인증을 해야되요!
+					</label>
+				  <input type="tel" class="form-control" name="phonenumber" placeholder=" '-' 없이 입력해주세요" required>	
+				</div>
 
 
-<form action="" method="POST">
-  {% csrf_token %}
-  <p>우리가 당신을 어떻게 부르면 좋을까요?</p>
-  <input type="textbox" name="nickname" placeholder="닉네임설정" required>
-  <p>당신의 휴대폰 번호를 입력해주세요!</p>
-  <input type="tel" name="phonenumber" placeholder=" '-' 없이 입력해주세요" required>
+			  <input type="button" class="btn btn-default" id="check_phone_button" value="인증번호발송"> 
+			  <div id="auth"></div>
+			  <input type="submit" class="btn btn-default btn-block" id="submit_button" disabled>
+			  <br>
 
-  <input type="button" id="check_phone_button" value="인증번호발송">   
-  <br>
-  <div id="auth"></div>
-  <input type="submit" id="button">
+			</form>
 
-</form>
-</body>
+		</div>
+	</section>
+
+	<section class="cal-md-2"></section>
+</div>
+
+
+
+
+
 {% endblock %}
 {% block js %}
 {% javascript 'aftersocial' %}

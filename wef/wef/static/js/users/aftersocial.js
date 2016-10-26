@@ -22,8 +22,8 @@
                             if(result.sms==true){
                                 console.log(result);
                                 alert("문자를 발송하였습니다. 서버 상황에 따라 최대 3분까지 소요될 수 있습니다.");
-                                $auth = $("#auth");
-                                $auth.append("<br><input type='text' name='tokenbox' placeholder='인증번호를 입력하세요' required> <input type='button' id='checktoken' value='인증확인'> ");
+                                var auth = document.getElementById('auth');
+                                auth.innerHTML = "<br><input type='text' name='tokenbox' class='form-control form-token' placeholder='인증번호를 입력하세요' required> <input type='button' class='btn btn-success' id='checktoken' value='인증확인'> ";
 
                                 $created_button = $('#checktoken');
                                 checktoken($created_button);
@@ -54,7 +54,9 @@
                         $check_phone_button.remove()
                         $insert_num = $('#auth');
                         $insert_num.empty();
-                        $insert_num.html("인증이 완료되었습니다!!");
+                        $insert_num.html("<p class='text-success'><strong>성공! </strong>인증이 완료되었습니다!!</p>");
+                        $submit_button = $('#submit_button');
+                        $submit_button.attr('disabled', false);
 
                     }else{
                         alert("인증번호가 일치하지 않습니다");
