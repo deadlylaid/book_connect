@@ -3,20 +3,45 @@
 {% block title %}남서울 도서공유{% endblock %}
 
 {% block body %}
-<div>남서울도서공유 홈</div>
-<br>
+<div class="container">
+	<section class="col-md-2"></section>
+	<section class="col-md-8">
+
+	<div class="form-inline">
     <form action="{% url "postsearch" %}" method="get" class="search">
-		<input type="text" name="keyword" placeholder="제목만 검색됩니다">
-		<input type="submit" value="검색">
-	</form>
+    	<div class="form-group bookconnect-form">
+				<input type="submit" class="btn btn-default" value="검색">
+				<label class="sr-only"for="keyword">keyword</label>
+				<input type="text" class="form-control bookconnect-input-text" name="keyword" placeholder="제목만 검색됩니다" required style="width : 90%; height : 42px; margin-bottom : 10px;">	
+    	</div>
+
+		</form>
+	</div>		
+
 <br>
 <br>
 {% if posts %}
 	{% for post in posts %}
 		<div>
+		<div class="panel panel-success">
+					<div class="panel-heading">
+						<div>
+							<h4>
+								<a href="{% url "postdetail" post.id %}">
+									{{post.title}}
+								</a>
+							</h4>
+						</div>
+						<div style="text-align:right">
+							{{ post.created_at }}
+						</div>
+					</div>
+					<div class="panel-body">판매자 : {{post.user.nickname}}</div>
+		  {% comment %}
 		  <div>제목: <a href="{% url "postdetail" post.id %}">{{ post.title }}</a></div>
 		  <div>글쓴이:{{ post.user.nickname }}</div>
 		  <div>날짜:{{ post.updated_at }}</div>
+			{% endcomment %}
 		</div>
 		<br>
 		<br>
@@ -29,7 +54,7 @@
 
 
 <nav>
-	<ul>
+	<ul class="pagination">
 	{# "comment -1" 만약 이전이 있다면 이전을 표시한다 #}
 		{% if posts.has_previous %}
 			<li>
@@ -39,8 +64,11 @@
 		{# "comment -1" END #}
 
 		{% for page_number in page_list %}
-			{% if page_number == "..." or page_number == posts.number %}
-				<li>{{ page_number }}</li>
+			{% if page_number == posts.number %}
+				<li class="page-item active"><a class="page-link" href="#" style="background-color : #007E33; border-color : #007E33;">{{ page_number }}</li></a>
+
+			{% elif page_number == "..." %}
+				<li class="page-item disabled"><a class="page-link" href="#">{{ page_number }}</li></a>
 			{% else %}
 				<li><a href='/lists/?page={{ page_number }}'>{{ page_number }}</a></li>
 			{% endif %}
@@ -55,4 +83,10 @@
 		{# "comment -1" END #}
 	</ul>
 </nav>
+
+	</section>
+	<section class="col-md-2"></section>
+</div>
+
+
 {% endblock %}
