@@ -2,28 +2,47 @@
 {% load pipeline %}
 {% block title %}판매 등록{% endblock %}
 {% block body %}
-<body>
-  <form action="" method="POST">
-    {% csrf_token %}
-    <p>제목</p>
-    <input type="text" name="title" placeholder="제목" required>
-   
-    <p>판매할 도서</p>
-    <input type="text" name="bookname" placeholder="도서 이름">
-    <p>가격</p>
-    <input type="text" name="bookprice" placeholder="가격">
-    
-    <input type='button' name="addlist" value="추가">
+<div class="container">
 
-    <ul class="booklist">
+<div class="col-md-3"></div>
+
+<div class="col-md-6">
+  <form action="" method="POST">
+      {% csrf_token %}
+    <div class="from-group">
+    <label for="title">제목을 입력해주세요</label>
+    <input type="text" class="form-control" name="title" placeholder="제목" required>
+    </div>
+<br />
+    <div class="form-group">
+        <label for="bookname">판매할 도서 이름</label>
+        <input type="text" class="form-control" name="bookname" placeholder="도서 이름" >
+    </div>
+    
+    <div class="form-group">
+        <label for="price" style="display : block;">도서의 가격을 정해주세요(단위 원)</label>
+        <input type="text" class="form-control" name="bookprice" placeholder="가격" style="display : inline; width : 40%;">
+        <input type='button' class="btn btn-default" name="addlist" value="추가">
+    </div>
+
+    
+
+
+    <ul class="booklist list-group">
     </ul>
 
-    <input type="submit" id='button'>
+    <input type="submit" class="btn btn-default btn-block" id='button'>
 
     <ul class="hiddenlist">
     </ul> 
   </form>
-</body>
+
+</div>
+
+<div class="col-md-3"></div>
+
+</div>
+
 {% endblock %}
 
 {% block js %}
