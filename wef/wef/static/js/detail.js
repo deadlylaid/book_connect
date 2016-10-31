@@ -33,10 +33,12 @@
                             console.log(book_list.is_soldout);
                             if(book_list.is_soldout==true){
                                 $(list).addClass("redline");
+                                $(list).addClass("list-group-item-danger");
                                 $(button).val("번복하기");
                             }
                             else if(book_list.is_soldout==false){
                                 $(list).removeClass("redline");
+                                $(list).removeClass("list-group-item-danger");
                                 $(button).val("sold out");
                             }
                         }

@@ -1,6 +1,11 @@
 {% extends "base.html" %}
+
 {% load pipeline %}
+
 {% block title %}상세 페이지{% endblock %}
+
+{% block sectionid %}detail{% endblock %}
+
 {% block css %}
 <style type="text/css">
     .redline{
@@ -8,22 +13,42 @@
     }
 </style>
 {% endblock %}
+
 {% block body %}
-<body>
-  <p>제목</p>
-  <p>{{ post.title }}<p>
-  <p>판매할 도서</p>
-    <ul class="booklist">
-        {% for bookname in post.booklist_set.all %}
-          {% if not bookname.is_soldout %}
-          <li id='list{{ forloop.counter }}'>{{ bookname.bookname }}({{ bookname.bookprice }}원) {% if request.user.username == post.user.username %}<input type='button' id='btn{{ forloop.counter }}' value='sold out'>{% else %} <input type='button' id='msg{{ forloop.counter }}' value='문자보내기'>{% endif %} </li>
-          {% else %}
-          <li id='list{{ forloop.counter }}' class='redline'>{{ bookname.bookname }}({{ bookname.bookprice }}원) {% if request.user.username == post.user.username %}<input type='button' id='btn{{ forloop.counter }}' value='번복하기'>{% endif %}<input type='text' value='이미 판매된 도서입니다' disabled> </li>
-          {% endif %}
-          {% if forloop.last %}<div class='data' data-list-num={{ forloop.counter }} data-post-id={{ post.id }}></div> {% endif %} 
-      {% endfor %}
-    </ul>
-</body>
+<div class="container">
+<div class="col-md-3"></div>
+<div class="col-md-6">
+
+    <h1 class="hanna">{{ post.title }}</h1>
+
+    <div class="item-detail">
+    
+        <h3 class="hanna">판매 중인 도서</h3>
+
+        <h5 class="text-warning" style="padding-left : 10px; padding-bottom : 10px;">
+            <strong>주의! </strong>문자를 너무 많이 보낼 경우 받는 사람이 불쾌할 수 있으니 한번만 보내기를 권장합니다.
+        </h5>
+
+        <ul class="booklist list-group">
+
+            {% for bookname in post.booklist_set.all %}
+              {% if not bookname.is_soldout %}
+              <li id='list{{ forloop.counter }}' class="list-group-item bk-border-color">{{ bookname.bookname }}({{ bookname.bookprice }}원) {% if request.user.username == post.user.username %}<input type='button' class="bk-float-right" id='btn{{ forloop.counter }}' value='sold out'>{% else %} <input type='button' class="bk-float-right" id='msg{{ forloop.counter }}' value='문자보내기'>{% endif %} </li>
+              {% else %}
+              <li id='list{{ forloop.counter }}' class='list-group-item list-group-item-danger bk-border-color redline'>{{ bookname.bookname }}({{ bookname.bookprice }}원) {% if request.user.username == post.user.username %}<input type='button' id='btn{{ forloop.counter }}' class="bk-float-right" value='번복하기'>{% endif %}<input type='text' value='이미 판매된 도서입니다' disabled> </li>
+              {% endif %}
+              {% if forloop.last %}<div class='data' data-list-num={{ forloop.counter }} data-post-id={{ post.id }}></div> {% endif %} 
+          {% endfor %}
+
+        </ul>
+    
+    </div>
+
+</div>
+<div class="col-md-3"></div>
+
+</div>
+
 {% endblock %}
 
 {% block js %}

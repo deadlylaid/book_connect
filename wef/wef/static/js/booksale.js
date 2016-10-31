@@ -18,12 +18,12 @@
         }
         else{
             if(($book_price.val() == "")||($book_price.val() == null)){
-                $booklist.append('<li>' + $book_name.val() + '(가격미정)</li>');
+                $booklist.append('<li class="list-group-item bk-border-color">' + $book_name.val() + '(가격미정)</li>');
                 $hiddenlist.append('<input type="hidden" name="book" value="'+$book_name.val()+'">')
                 $hiddenlist.append('<input type="hidden" name="price" value="가격미정">')
             }
             else {
-                $booklist.append('<li>' + $book_name.val() + '(' + $book_price.val() + '원)</li>');
+                $booklist.append('<li class="list-group-item bk-border-color">' + $book_name.val() + '(' + $book_price.val() + '원)</li>');
                 $hiddenlist.append('<input type="hidden" name="book" value="'+$book_name.val()+'">')
                 $hiddenlist.append('<input type="hidden" name="price" value="'+$book_price.val()+'">')
             }
