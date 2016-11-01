@@ -67,5 +67,3 @@ class BookSale(LoginRequiredMixin, View):
                             }
                         )
                     )
-
-
