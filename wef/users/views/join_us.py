@@ -8,7 +8,7 @@ from users.models import User
 
 
 def join_us(request):
-    
+
     # GET method 로 받았을 때
     if request.method == "GET":
         return render(
@@ -50,5 +50,5 @@ def join_us(request):
 
             return redirect(reverse("aftersocial"))
 
-        #일치하지 않을 경우
+        # 일치하지 않을 경우
         return redirect(reverse("join_us"))
