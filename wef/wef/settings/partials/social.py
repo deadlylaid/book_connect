@@ -27,6 +27,9 @@ SOCIAL_AUTH_KAKAO_SECRET = os.environ.get("KAKAO_SECRET")
 # Config redirect URL after Social sign up
 LOGIN_REDIRECT_URL = '/aftersocial/'
 
+# Config redirect when user Authentication process canceled
+SOCIAL_AUTH_LOGIN_ERROR_URL = '/'
+
 # Social Auth login process customizing
 SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.social_auth.social_details',
