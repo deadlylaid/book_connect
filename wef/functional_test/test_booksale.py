@@ -62,7 +62,7 @@ class OurClientCreateItemTest(StaticLiveServerTestCase):
         # 포스트가 등록되면서 포스트 장으로 이동한다
         # 등록된 포스트 속 도서가 리스트로 나온다
         self.assertIn('상세 페이지', self.browser.title)
-        self.assertIn('판매할 도서', self.browser.find_element_by_tag_name('body').text)
+        self.assertIn('판매 중인 도서', self.browser.find_element_by_tag_name('body').text)
         self.assertIn('글쓰기와 말하기', self.browser.find_element_by_tag_name('body').text)
         self.assertIn('10000', self.browser.find_element_by_tag_name('body').text)
 
