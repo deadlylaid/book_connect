@@ -5,6 +5,7 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from users.models import User
 from items.models import ItemPost, BookList
 
+
 class OurClientCanSendSMSIfBuyBook(StaticLiveServerTestCase):
 
     def setUp(self):
@@ -15,7 +16,7 @@ class OurClientCanSendSMSIfBuyBook(StaticLiveServerTestCase):
                 nickname='NICKNAMETEST',
                 phone='01011111111')
         itempost = ItemPost.objects.create(user=user1, title='posttitle')
-        booklist1 = BookList.objects.create(post=itempost, booknumber=1, bookname='book1', bookprice='1000', is_soldout=False)
+        booklist1 = BookList.objects.create(post=itempost, booknumber=1, bookname='book1', bookprice='1000')
         user2 = User.objects.create_user(
                 username='MyTestID2',
                 password='123',
@@ -50,7 +51,7 @@ class OurClientCanSendSMSIfBuyBook(StaticLiveServerTestCase):
         self.assertIn('남서울 도서공유', self.browser.title)
         # 포스트링크에 들어간다.
         self.browser.get('http://localhost:8081/booksale/2/')
-        
+
         # 마음에 드는 중고책이 있어서 판매자에게 문자를 보낸다
         self.browser.find_element_by_id('msg1').click()
         # 문자가 보내지기 전에 알림창으로 휴대폰번호 제공 공지가 뜬다
