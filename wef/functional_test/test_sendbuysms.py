@@ -50,7 +50,7 @@ class OurClientCanSendSMSIfBuyBook(StaticLiveServerTestCase):
         self.browser.find_element_by_id('button').click()
         self.assertIn('남서울 도서공유', self.browser.title)
         # 포스트링크에 들어간다.
-        self.browser.get('http://localhost:8000/booksale/1/')
+        self.browser.get('http://localhost:8081/booksale/2/')
 
         # 마음에 드는 중고책이 있어서 판매자에게 문자를 보낸다
         self.browser.find_element_by_id('msg1').click()
