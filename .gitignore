@@ -91,3 +91,6 @@ ENV/
 
 # dotswp
 .swp
+
+# migrations
+migrations/
