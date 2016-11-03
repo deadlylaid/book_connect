@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.utils import timezone
 
 
 class ItemPost(models.Model):
@@ -18,11 +19,11 @@ class ItemPost(models.Model):
             )
 
     created_at = models.DateTimeField(
-            auto_now_add=True,
+            default=lambda:timezone.localtime(timezone.now()),
             )
 
     updated_at = models.DateTimeField(
-            auto_now=True,
+            default=lambda:timezone.localtime(timezone.now()),
             )
 
     def __str__(self):
