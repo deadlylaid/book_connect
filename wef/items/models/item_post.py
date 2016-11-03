@@ -19,11 +19,11 @@ class ItemPost(models.Model):
             )
 
     created_at = models.DateTimeField(
-            default=lambda:timezone.localtime(timezone.now()),
+            default=lambda: timezone.localtime(timezone.now()),
             )
 
     updated_at = models.DateTimeField(
-            default=lambda:timezone.localtime(timezone.now()),
+            default=lambda: timezone.localtime(timezone.now()),
             )
 
     def __str__(self):
