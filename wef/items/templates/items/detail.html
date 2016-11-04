@@ -19,14 +19,23 @@
 <div class="col-md-3"></div>
 <div class="col-md-6">
 
-    <h1 class="hanna">{{ post.title }}</h1>
+    <div class="post-title-bar">
+        <h1 class="hanna">{{ post.title }}</h1>
+        {% if request.user.username == post.user.username %}
+        <a href="{% url "postdelete" post.id %}">삭제</a>
+        {% endif %}
+    </div>
 
     <div class="item-detail">
     
         <h3 class="hanna">판매 중인 도서</h3>
 
         <h5 class="text-warning" style="padding-left : 10px; padding-bottom : 10px;">
-            <strong>주의! </strong>문자를 너무 많이 보낼 경우 받는 사람이 불쾌할 수 있으니 한번만 보내기를 권장합니다.
+            {% if request.user.username == post.user.username %}
+                상대방에게 문자가 너무 많이 온다면 <strong>'게시물 삭제' </strong>도 좋은 방법입니다.
+            {% else %}
+                <strong>주의! </strong>문자를 너무 많이 보낼 경우 받는 사람이 불쾌할 수 있으니 한번만 보내기를 권장합니다.
+            {% endif %}
         </h5>
 
         <ul class="booklist list-group">
