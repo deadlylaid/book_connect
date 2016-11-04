@@ -13,7 +13,7 @@ class PostDelete(LoginRequiredMixin, View):
 
     def get(self, request, pk, *args, **kwargs):
 
-        itempost =ItemPost.objects.get(pk=pk)
+        itempost = ItemPost.objects.get(pk=pk)
 
         # 현재 유저가 삭제하려는 포스트의 업로더와
         # 같은 유저인 것을 확인 한 후 삭제
