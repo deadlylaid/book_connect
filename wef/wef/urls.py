@@ -36,6 +36,7 @@ urlpatterns = [
 
     url(r'^booksale/$', BookSale.as_view(), name='booksale'),
     url(r'^booksale/(?P<pk>\d+)/$', PostDetail.as_view(), name='postdetail'),
+    url(r'^booksale/(?P<pk>\d+)/delete$', PostDelete.as_view(), name='postdelete'),
 
     url(r'^api/username/check/$', CheckOverlapUsername.as_view(), name='checkusername'),
     url(r'^api/token/check/$', CheckToken.as_view(), name='checktoken'),

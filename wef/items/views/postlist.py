@@ -15,7 +15,7 @@ class PostList(View):
 
         paginator = Paginator(
                 # 가장 나중에 만들어진 포스트를 먼저 꺼내기 위해 '-id'사용
-                ItemPost.objects.order_by('-id'),
+                ItemPost.objects.filter(is_deleted=False).order_by('-id'),
                 page_per,
                 )
 

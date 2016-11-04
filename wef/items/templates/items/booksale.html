@@ -11,17 +11,17 @@
       {% csrf_token %}
     <div class="from-group">
     <label for="title">제목을 입력해주세요</label>
-    <input type="text" class="form-control" name="title" placeholder="제목" required>
+    <input type="text" class="form-control" maxlength="30" name="title" placeholder="제목" required>
     </div>
 <br />
     <div class="form-group">
         <label for="bookname">판매할 도서 이름</label>
-        <input type="text" class="form-control" name="bookname" placeholder="도서 이름" >
+        <input type="text" class="form-control" maxlength="30" name="bookname" placeholder="도서 이름" >
     </div>
     
     <div class="form-group">
         <label for="price" style="display : block;">도서의 가격을 정해주세요(단위 원)</label>
-        <input type="text" class="form-control" name="bookprice" placeholder="가격" style="display : inline; width : 40%;">
+        <input type="text" class="form-control" maxlength="20" name="bookprice" placeholder="가격" style="display : inline; width : 40%;">
         <input type='button' class="btn btn-default" name="addlist" value="추가">
     </div>
 

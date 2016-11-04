@@ -23,7 +23,7 @@
 							</h4>
 						</div>
 						<div style="text-align:right">
-							{{ post.created_at }}
+							{{ post.created_at|date:"Y년 m월 d일 g:i A" }}
 						</div>
 					</div>
 					<div class="panel-body">판매자 : {{post.user.nickname}}</div>
