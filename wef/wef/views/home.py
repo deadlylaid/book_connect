@@ -14,7 +14,7 @@ class Home(View):
         page_per = 5
 
         paginator = Paginator(
-                ItemPost.objects.order_by('-id'),
+                ItemPost.objects.filter(is_deleted=False).order_by('-id'),
                 page_per,
                 )
 
