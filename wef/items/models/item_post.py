@@ -3,6 +3,10 @@ from django.conf import settings
 from django.utils import timezone
 
 
+def localtime():
+    return timezone.localtime(timezone.now())
+
+
 class ItemPost(models.Model):
 
     user = models.ForeignKey(
@@ -19,11 +23,15 @@ class ItemPost(models.Model):
             )
 
     created_at = models.DateTimeField(
-            default=lambda: timezone.localtime(timezone.now()),
+            default=localtime
             )
 
     updated_at = models.DateTimeField(
-            default=lambda: timezone.localtime(timezone.now()),
+            default=localtime,
+            )
+
+    is_deleted = models.BooleanField(
+            default=False,
             )
 
     def __str__(self):
