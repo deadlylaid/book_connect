@@ -19,10 +19,16 @@
 <div class="col-md-3"></div>
 <div class="col-md-6">
 
+    {% if post.is_deleted %}
+    <div class="is-deleted jumbotron-icon">
+        <h1 class="hanna"> 해당 게시물은 삭제되었습니다.</h1>
+        <i class="fa fa-ban fa-6" aria-hidden="true" style="margin : 50px;"></i>
+    </div>
+    {% else %}
     <div class="post-title-bar">
         <h1 class="hanna">{{ post.title }}</h1>
         {% if request.user.username == post.user.username %}
-        <a href="{% url "postdelete" post.id %}">삭제</a>
+            <a class="btn btn-danger" href="{% url "postdelete" post.id %} ">게시물 삭제</a>
         {% endif %}
     </div>
 
@@ -54,6 +60,7 @@
     </div>
 
 </div>
+    {% endif %}
 <div class="col-md-3"></div>
 
 </div>
