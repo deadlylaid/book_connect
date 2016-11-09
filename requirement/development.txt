@@ -4,4 +4,5 @@ Ipython
 selenium
 django-debug-toolbar
 django-extensions
-
+django_storages==1.5.1
+boto
