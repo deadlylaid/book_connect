@@ -19,4 +19,4 @@ script:
     - python wef/manage.py makemigrations users items
     - python wef/manage.py migrate
     - python wef/manage.py collectstatic --settings=wef.settings.development --noinput
-    - python wef/manage.py test users
+    - python wef/manage.py test users --settings=wef.settings.development
