@@ -1,25 +1,23 @@
 language: python
-
 python:
-    - "3.5.1"
-addons:
-    postgresql:"9.5.1"
-
-install: 
-    - pip install -r requirement/development.txt
-
+- 3.5.1
+addons: postgresql:"9.5.1"
+install:
+- pip install -r requirement/development.txt
 before_script:
-    - psql -c 'CREATE DATABASE bookconnect;' -U postgres
-    - createuser hanminsoo
-    - psql -c 'GRANT ALL PRIVILEGES ON DATABASE bookconnect TO hanminsoo;' -U postgres
-    - psql -c 'ALTER USER hanminsoo CREATEDB;' -U postgres
-    - npm -g install yuglify
-    - npm install yuglify
-
-# # command to run tests
+- psql -c 'CREATE DATABASE bookconnect;' -U postgres
+- createuser hanminsoo
+- psql -c 'GRANT ALL PRIVILEGES ON DATABASE bookconnect TO hanminsoo;' -U postgres
+- psql -c 'ALTER USER hanminsoo CREATEDB;' -U postgres
+- npm -g install yuglify
+- npm install yuglify
 script:
-    - pep8
-    - python wef/manage.py makemigrations users items
-    - python wef/manage.py migrate
-    - python wef/manage.py collectstatic --noinput
-    - python wef/manage.py test users
+- pep8
+- python wef/manage.py makemigrations users items
+- python wef/manage.py migrate
+- python wef/manage.py collectstatic --noinput
+- python wef/manage.py test users
+deploy:
+  access_key_id: AKIAIANK2NNJ47OHD5YA
+  secret_access_key:
+    secure: ZJtwRlSL7DtAY9CSVTiRPgN8zObqD1l9+STUJ7/HTsomGCCg10+q+6WZHvxgA0wr9imOcbh8Ww5uFphNStec1D+UunJhsxGr4ZpMqLH+P7ipalbihgDlg1Cz3XU1Mw36lFlS3jPrj/wpNm7qVcefD4SPgHz5hcuPAGI3Qu0ar2u1oVpnEZYvjGyeDR6Kk371PE+TMg3fYAIt4MImIy3u5t7eLK8nkSkFKa+J1ws1AMPd8VE/XITxTVER4uuEYG0D2LD0HNePf99lA6XBM7DvMcrMmGqOvGVe+93FYo3Ame5LNC4loU/sG58rMDf73ZqMvWPF+YfDx3YoLlJ7VuquW8CeOq2yzHpX1kz4MdTIQEEbvjFXOO+JpLbLOLMMqfyFg3y5t1gku7ccjI59LoeJf+HXyQxYV+7y57VC9Gu+SYkTcpTSLsM3NURtMBHEDCkFkZUETvCagnpLuKp7YrUsT9XbLQ5JlscGiMFy8cfVdFInSWSH2ckY0Ui92bvG/Pc0Mevky5mdDKWiNPUWIfLJfCEc+OnZFmCEyEyjrCH3DVC03gKWW5Q1ibR+9W6qfimYO2NsgS31zGDSuIXPHG1+VvFwAWItbg99D+1blhb5yQqCutom7POwiK1hPYN96rTt01jaasovRxwFUn31AyoQQReVtNYC1ZBLTHhMlRYD2i8=
