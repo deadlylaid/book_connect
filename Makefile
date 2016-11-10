@@ -18,6 +18,3 @@ migrate:
 
 collectstatic:
 	python wef/manage.py collectstatic --noinput
-
-productcollectstatic:
-	python wef/manage.py collectstatic --settings=wef.settings.production
