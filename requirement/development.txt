@@ -5,3 +5,4 @@ selenium
 django-debug-toolbar
 django-extensions
 django_storages_redux
+boto
