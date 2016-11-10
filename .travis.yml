@@ -13,7 +13,7 @@ before_script:
     - psql -c 'ALTER USER hanminsoo CREATEDB;' -U postgres
     - npm -g install yuglify
     - npm install yuglify
-    - pip uninstall django-storages-redux
+
 script:
     - pep8
     - python wef/manage.py makemigrations users items
