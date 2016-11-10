@@ -27,7 +27,6 @@ INSTALLED_APPS = [
     'social.apps.django_app.default',
 
     'pipeline',
-#    'storages',
 
     'rest_framework',
     'watson',
