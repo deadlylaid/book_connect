@@ -1,13 +1,11 @@
-language: python
-
+language: 
+    python
 python:
-    - "3.5.1"
-addons:
+    - 3.5.1
+addons: 
     postgresql:"9.5.1"
-
-install: 
+install:
     - pip install -r requirement/development.txt
-
 before_script:
     - psql -c 'CREATE DATABASE bookconnect;' -U postgres
     - createuser hanminsoo
@@ -16,10 +14,9 @@ before_script:
     - npm -g install yuglify
     - npm install yuglify
 
-# # command to run tests
 script:
     - pep8
     - python wef/manage.py makemigrations users items
     - python wef/manage.py migrate
-    - python wef/manage.py collectstatic --noinput
-    - python wef/manage.py test users
+    - python wef/manage.py collectstatic --settings=wef.settings.development --noinput
+    - python wef/manage.py test users --settings=wef.settings.development

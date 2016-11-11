@@ -17,4 +17,8 @@ migrate:
 	python wef/manage.py migrate
 
 collectstatic:
-	python wef/manage.py collectstatic --noinput
+	python wef/manage.py collectstatic --settings=wef.settings.development --noinput
+
+
+productioncollectstatic:
+	python wef/manage.py collectstatic --settings=wef.settings.production --noinput
