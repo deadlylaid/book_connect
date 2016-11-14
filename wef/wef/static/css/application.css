@@ -1,0 +1,13 @@
+@import "partials/fonttype.css";
+@import "partials/header.css";
+@import "partials/footer.css";
+
+@import "partials/home.css";
+
+@import "partials/login.css";
+@import "partials/joinus.css";
+@import "partials/aftersocial.css";
+
+@import "partials/lists.css";
+@import "partials/booksale.css";
+@import "partials/detail.css";

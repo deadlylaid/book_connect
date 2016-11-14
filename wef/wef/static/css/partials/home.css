@@ -1,0 +1,9 @@
+.panel .panel-heading a {
+    color: #007E33;
+}
+
+
+.panel .panel-heading a:hover {
+    color: #007E33;
+    text-decoration: none;
+}

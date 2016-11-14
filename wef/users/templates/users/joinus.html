@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% load pipeline %}
+
+{% block title %}회원가입{% endblock %}
+
+{% block sectionid %}joinus{% endblock %}
+
+{% block body %}
+<div class="container">
+
+  <section class="col-md-2"></section>
+
+  <section class="col-md-8">
+
+        <div class="raw">
+          <div class="title-comment">
+            <h3 class="hanna">초간단 회원가입</h3>
+          </div>
+        </div>
+       <div class="form-box col-md-8 col-md-offset-2"> 
+        <div class="social-button-joinus">
+          <a href="/login/facebook/"class="btn btn-facebook btn-block">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;페이스북으로 회원가입
+          </a>
+
+          <a href="/login/kakao/" class="btn btn-kakao btn-block">
+            <i class="fa fa-comment" aria-hidden="true"></i>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카카오톡으로 회원가입 
+          </a>
+        </div>
+
+        <div class="or-container">
+          <hr class="hr-line">
+          <div id="or" >OR</div>
+        </div>
+
+        <div class="raw">
+            <div class="title-comment">
+              <h3 class="hanna">북커넥트 자체 계정 생성</h3>
+            </div>
+        </div>
+
+        <form action="" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="user">당신만의 멋진 아이디를 입력해주세요!</label>
+            <input type="text" class="form-control" maxlength="30" name="username" placeholder="닉네임설정" required>
+            <div id="check_username"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">암호는 어떤걸로 하실래요?</label>
+            <input type="password" class="form-control" name="password" placeholder="비밀번호" required>
+          </div>
+
+          <div class="form-group">
+            <label for="checkpassword" id="pw_message">암호를 한번만 더 입력해주세요</label>
+            <input type="password" class="form-control" name="checkpassword" placeholder="비밀번호 확인" required>
+          </div>
+          <input type="submit" id='button' class="btn btn-default btn-block" value="회원가입" disabled>
+
+        </form>
+        </div>
+  </section>
+
+  <section class="col-md-2"></section>
+
+</div>
+{% endblock %}
+{% block js %}
+{% javascript 'joinus' %}
+{% endblock %}

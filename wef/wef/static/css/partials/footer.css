@@ -1,0 +1,31 @@
+footer#footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color:#007E33;
+    padding: 30px;
+}
+
+footer#footer div {
+    color: #ffffff;
+}
+
+footer#footer ul {
+    list-style-type: none;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-left: 0px;
+}
+
+footer#footer ul li {
+    display: inline;
+    padding-right: 5px;
+}
+
+footer#footer ul li a {
+    color: inherit;
+}
+
+footer#footer ul li a:hover {
+    color: #ffffff;
+}

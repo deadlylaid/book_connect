@@ -1,0 +1,8 @@
+-r production.txt
+pep8
+Ipython
+selenium
+django-debug-toolbar
+django-extensions
+django-storages-redux
+boto

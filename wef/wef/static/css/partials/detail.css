@@ -1,0 +1,18 @@
+.item-detail {
+    margin-top : 50px;
+    margin-bottom: 100px;
+}
+
+.bk-float-right {
+    float: right;
+}
+
+.is-deleted{
+    margin: 100px 100px;
+    text-align: center;
+}
+
+.fa-ban:before {
+    content: "\f05e";
+    font-size: 20em;
+}

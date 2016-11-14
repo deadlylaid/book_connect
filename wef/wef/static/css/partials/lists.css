@@ -1,0 +1,14 @@
+@media (min-width: 768px) {
+    .form-group.bookconnect-form {
+        display: block;
+    }
+}
+
+.pagination>li>a{
+    color: #007E33;
+    margin-left: -1px;
+}
+
+.pagination>li>a:hover {
+    color: #00C851;
+}

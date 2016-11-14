@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "BM HANNA";
+    font-style: normal;
+    font-weight: 200;
+    src:url('../../fonts/BM-HANNA.eot"); /* IE9 Compat Modes */ 
+    src:url('../../fonts/BM-HANNA.eot?#iefix') format('embedded-opentype'),/* IE6-IE8 */
+        url('../../fonts/BM-HANNA.ttf') format('truetype'),/* Safari, Android, iOS */
+        url('../../fonts/BM-HANNA.woff') format('woff'),/* Pretty Modern Browsers */
+        url('../../fonts/BM-HANNA.svg#BM-HANNA') format('svg');/* Legacy iOS */
+    src:local(※), url('../../fonts/BM-HANNA.woff') format('woff');
+}
+
+@font-face {
+    font-family: "NanumBarunGothic";
+    font-style: normal;
+    font-weight: 200;
+    src:url('../../fonts/NanumBarunGothic.eot"); /* IE9 Compat Modes */ 
+    src:url('../../fonts/NanumBarunGothic.eot?#iefix') format('embedded-opentype'),/* IE6-IE8 */
+        url('../../fonts/NanumBarunGothic.ttf') format('truetype'),/* Safari, Android, iOS */
+        url('../../fonts/NanumBarunGothic.woff') format('woff'),/* Pretty Modern Browsers */
+        url('../../fonts/NanumBarunGothic.svg#BM-HANNA') format('svg');/* Legacy iOS */
+    src:local(※), url('../../fonts/NanumBarunGothic.woff') format('woff');
+}
+
+*, body, h1, h2, h3, h4, h5, h6, p, div, section, article {
+      font-family: 'NanumBarunGothic', sans-serif;
+}
+
+.hanna{
+    font-family:"BM HANNA";
+}

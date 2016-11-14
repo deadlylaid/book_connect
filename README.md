@@ -1,2 +1,3 @@
 # study_alone
-Study alone like a loner
+
+study_alone

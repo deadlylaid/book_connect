@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}남서울 도서공유{% endblock %}
+
+{% block sectionid %}home{% endblock %}
+
+
+{% block body %}
+<div class="container">
+		<section class="col-md-2">
+		</section>
+
+		<section class="col-md-8">
+			<h3 class="hanna">최근 올라온 도서들입니다.</h3>
+			{% for post in posts %}
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<div>
+							<h4>
+								<a href="{% url "postdetail" post.id %}">
+									{{post.title}}
+								</a>
+							</h4>
+						</div>
+						<div style="text-align:right">
+							{{ post.created_at|date:"Y년 m월 d일 g:i A" }}
+						</div>
+					</div>
+					<div class="panel-body">판매자 : {{post.user.nickname}}</div>
+					{% comment %} 
+					<div>
+						<ul>
+              {% for post_info in post.booklist_set.all %}
+              	{% if forloop.counter0 < 2 %}
+									<li>{{ post_info.bookname }}</li>
+								{% endif %}
+						{% endfor %}
+						</ul>
+					</div>
+					{% endcomment %}
+				</div>
+			{% endfor %}
+		</section>
+
+
+		<section class="col-md-2">
+		</section>
+</div>
+{% endblock %}
