@@ -14,7 +14,7 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
 
 AWS_S3_HOST = "s3-ap-northeast-1.amazonaws.com"
 
-#CloudFront
+# CloudFront
 AWS_S3_CUSTOM_DOMAIN = 'd1s96a26nn963w.cloudfront.net'
 AWS_S3_URL_PROTOCOL = 'https'
 
