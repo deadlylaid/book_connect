@@ -9,6 +9,6 @@ DATABASES = {
         'NAME': 'bookconnect',
         'USER': 'hanminsoo',
         'PASSWORD': 'deadlylaid',
-        'HOST': '',
+        'HOST': 'localhost',
     }
 }
