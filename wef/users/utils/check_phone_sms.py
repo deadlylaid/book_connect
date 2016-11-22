@@ -2,6 +2,7 @@ import os
 import requests
 import json
 
+
 class SendPhoneCheckSMS():
 
     def send_sms(self, phone_number, token):
@@ -16,12 +17,11 @@ class SendPhoneCheckSMS():
         url = os.environ.get("URL")
 
         params = {
-                'sender' : sender,
-                'receivers' : receivers,
-                'content' : content,
+                'sender': sender,
+                'receivers': receivers,
+                'content': content,
         }
-        headers = {'Content-type': 'application/json; charset=utf-8',}
-        r = requests.post(url, data=json.dumps(params),
-                auth=(appid, apikey), headers=headers)
+        headers = {'Content-type': 'application/json; charset=utf-8', }
+        r = requests.post(url, data=json.dumps(params), auth=(appid, apikey), headers=headers)
 
         return params
