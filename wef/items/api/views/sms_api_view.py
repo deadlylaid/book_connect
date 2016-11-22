@@ -31,7 +31,7 @@ class SendBuySMSAPIView(APIView):
 
                 response_data = {}
                 response_data['send'] = True
-                return Response(status=status.HTTP_204_NO_CONTENT)
+                return Response(response_data, status=status.HTTP_200_OK)
 
             response_data = {}
             response_data['send'] = False
