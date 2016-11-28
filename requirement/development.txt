@@ -6,3 +6,4 @@ django-debug-toolbar
 django-extensions
 django-storages-redux
 boto
+honcho==0.7.1
