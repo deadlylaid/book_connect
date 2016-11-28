@@ -12,7 +12,7 @@ class SendSMS():
         sender = '01020370706'
         receivers = [saler_phone, ]
 
-        content = u'[북커넥트]'+ selected_bookname + ' 판매요청. 요청자 번호:'+ buyer_phone
+        content = u'[북커넥트]' + selected_bookname + ' 판매요청. 요청자 번호:' + buyer_phone
 
         url = os.environ.get("URL")
 
