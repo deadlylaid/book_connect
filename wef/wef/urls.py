@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^joinus/$', join_us, name='join_us'),
     url(r'^login/$', LogInView.as_view(), name='log_in'),
     url(r'^logout/$', LogOutView.as_view(), name='log_out'),
+    url(r'^mypage/$', MyPage.as_view(), name='my_page'),
 
     url(r'^lists/$', PostList.as_view(), name='postlist'),
     url(r'^search/$', SearchView.as_view(), name='postsearch'),
