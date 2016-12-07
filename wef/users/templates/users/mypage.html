@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}마이 페이지{% endblock %}
+
+{% block sectionid %}mypage{% endblock %}
+
+
+{% block body %}
+<div class="container">
+	<section class="col-md-1">
+	</section>	
+
+	<section class="col-md-10">
+		<div class="raw">
+			<div class="explain-text">
+				<h3 class="hanna">내 정보</h3>
+			</div>
+
+      <div class="form-box col-md-8 col-md-offset-2">
+
+        <table class="table table-hover">
+          <tr>
+            <td><p class="hanna">아이디(등록코드)</p></td>
+            <td>{{ request.user.username }}</td>
+          </tr>
+          
+          <tr>
+            <td><p class="hanna">닉네임</p></td>
+            <td>{{ request.user.nickname }}</td>
+          </tr>
+        
+          <tr>
+            <td><p class="hanna">전화번호</p></td>
+            {% if request.user.phone == none %}
+            <td>인증 안됨</td>
+            {% else %}
+
+            <td>{{ request.user.phone }}
+              {% if request.user.passed_certification %}
+                <i class="fa fa-check" aria-hidden="true" style="color: #007E33;"></i>
+              {% else %}
+                <i class="fa fa-question" aria-hidden="true" style="color: #e62117;"></i>
+              {% endif %}
+            </td>
+            {% endif %}
+          </tr>
+        </table>
+
+
+        <section class="col-md-6">
+          <p align="center">게시 중인 아이템들</p>
+            <ul class="list-group">
+              {% for post in posts %}
+                {% if post.is_deleted %}
+                {% else %}
+                  <li class="list-group-item">
+                    <a href="{% url "postdetail" post.id %}">
+                    {{ post.title }}
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+
+        </section>	
+        <section class="col-md-6">
+
+          <p align="center">삭제한 아이템들</p>
+            <ul class="list-group">
+          {% for post in posts %}
+            {% if post.is_deleted %}
+              <li class="list-group-item">
+                <a href="{% url "postdetail" post.id %}">
+                  {{ post.title }}
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </section>
+
+
+			</div>
+
+	  </div>
+	</section>
+
+	<section class="col-md-1">
+	</section>	
+
+</div>
+
+  
+{% endblock %}
