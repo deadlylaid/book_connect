@@ -4,6 +4,8 @@
         //판매하려는 책 목록의 수를 가져온다.
         $book_list_num = $("div").data("listNum");
 
+        console.log("$book_list_num : "+$book_list_num);
+
         $("[id^=btn]").on('click', function(event){
             //id 값을 잡는다
             var button_id = $(this).attr("id");
