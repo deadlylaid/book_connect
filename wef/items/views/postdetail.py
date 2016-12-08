@@ -11,8 +11,11 @@ class PostDetail(View):
 
         post = ItemPost.objects.get(pk=pk)
 
+        books = post.booklist_set.order_by('booknumber')
+
         context = {
-                "post": post
+                "post": post,
+                "books": books,
                 }
 
         return render(
