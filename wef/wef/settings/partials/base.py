@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'storages',
 
     'rest_framework',
+    'haystack',
     'watson',
 
     'wef',
@@ -93,3 +94,12 @@ USE_TZ = True
 
 # Celery Broker Init
 BROKER_URL = 'redis://localhost:6379/0'
+
+# Django haystack
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'http://127.0.0.1:9200/',
+        'INDEX_NAME': 'bookconnect_elastic_index',
+    },
+}
