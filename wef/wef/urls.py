@@ -32,7 +32,9 @@ urlpatterns = [
     url(r'^logout/$', LogOutView.as_view(), name='log_out'),
 
     url(r'^lists/$', PostList.as_view(), name='postlist'),
-    url(r'^search/$', SearchView.as_view(), name='postsearch'),
+
+    # using django-haystack + elasticsearch
+    url(r'^search/$', SearchView(), name='postsearch'),
 
     url(r'^booksale/$', BookSale.as_view(), name='booksale'),
     url(r'^booksale/(?P<pk>\d+)/$', PostDetail.as_view(), name='postdetail'),
@@ -48,4 +50,5 @@ urlpatterns = [
     url(r'^aftersocial/$', AfterSocial.as_view(), name='aftersocial'),
 
     url(r'', include('social.apps.django_app.urls', namespace='social')),
+    # url(r'^search/', include('haystack.urls')),
 ]
