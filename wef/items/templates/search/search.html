@@ -7,29 +7,40 @@
 	<section class="col-md-2"></section>
 	<section class="col-md-8">
 
-  <h2>Search</h2>
+	<div class="form-inline">
+    <form action="/search/" method="get" class="search">
+    	<div class="form-group bookconnect-form">
+				<input type="submit" class="btn btn-default" value="검색">
+				<label class="sr-only"for="keyword">keyword</label>
+				<input type="text" class="form-control bookconnect-input-text" name="q" placeholder="제목만 검색됩니다" required style="width : 90%; height : 42px; margin-bottom : 10px;">	
+    	</div>
 
-    <form method="get" action=".">
-        <table>
-            {{ form.as_table }}
-            <tr>
-                <td>&nbsp;</td>
-                <td>
-                    <input type="submit" value="Search">
-                </td>
-            </tr>
-        </table>
+		</form>
+	</div>	
 
         {% if query %}
-
+            <p> 검색결과...</p>
             {% for result in page.object_list %}
                 {% if not result.object.post.is_deleted %}
-                <p>
-                    <a href="{% url "postdetail" result.object.post.id %}">{{result.object.post.title}}</a>, {{ result.object.post.user.nickname }}, {{ result.object.post.created_at|date:"Y년 m월 d일 g:i A" }}
-                </p>
+
+                <div>
+                <div class="panel panel-success">
+                <div class="panel-heading">
+                <div>
+                <h4>
+                    <a href="{% url "postdetail" result.object.post.id %}">{{result.object.post.title}}</a>
+                </h4>
+                </div>
+                <div style="text-align:right"> {{ result.object.post.created_at|date:"Y년 m월 d일 g:i A" }}</div>
+                </div>
+                <div class="panel-body">판매자 : {{ result.object.post.user.nickname }} </div>
+                </div>
+
+                </div>
+
                 {% endif %}
             {% empty %}
-                <p>No results found.</p>
+                <p><strong>"{{ query }}"</strong> 에 대한 검색 결과가 없어요!</p>
             {% endfor %}
 
             {% if page.has_previous or page.has_next %}
