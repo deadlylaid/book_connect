@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from django.contrib import messages
 
 from items.models import ItemPost, BookList
+from items.tasks.haystack_indexing import UpdateIndexTask
 
 
 class BookSale(LoginRequiredMixin, View):
@@ -58,6 +59,10 @@ class BookSale(LoginRequiredMixin, View):
                         bookname=names,
                         bookprice=book_prices[i],
                         )
+
+            # django-haystack auto indexing
+            auto_indexing = UpdateIndexTask()
+            auto_indexing.delay()
 
             return redirect(
                     reverse(
