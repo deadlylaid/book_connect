@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     'haystack',
     'watson',
 
+    'versatileimagefield',
+
     'wef',
     'users',
     'items',
