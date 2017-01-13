@@ -59,6 +59,14 @@
     
     </div>
 
+    {% if images %}
+      <div class="imagebox">
+        {% for image in images %}
+        <img alt="" class="image" src="{{ image.image.url }}">
+        {% endfor %}
+      </div>
+    {% endif %}
+
 </div>
     {% endif %}
 <div class="col-md-3"></div>

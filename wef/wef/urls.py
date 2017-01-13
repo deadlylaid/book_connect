@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from django.conf.urls.static import static
+from django.conf import settings
+
 from wef.views import *
 from users.views import *
 from items.views import *
@@ -52,4 +55,4 @@ urlpatterns = [
 
     url(r'', include('social.apps.django_app.urls', namespace='social')),
     # url(r'^search/', include('haystack.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
