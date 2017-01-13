@@ -65,13 +65,12 @@ class BookSale(LoginRequiredMixin, View):
             for i, image in enumerate(images[:3]):
                 BookImage.objects.create(
                         post=created_bookpost,
-                        image = image,
+                        image=image,
                         )
 
-
             # django-haystack auto indexing
-#            auto_indexing = UpdateIndexTask()
-#            auto_indexing.delay()
+            auto_indexing = UpdateIndexTask()
+            auto_indexing.delay()
 
             return redirect(
                     reverse(

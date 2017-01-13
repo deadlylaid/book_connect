@@ -55,4 +55,4 @@ urlpatterns = [
 
     url(r'', include('social.apps.django_app.urls', namespace='social')),
     # url(r'^search/', include('haystack.urls')),
-]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
