@@ -9,6 +9,14 @@ class BookListTabularAdmin(admin.TabularInline):
     readonly_fields = ('booknumber',)
     can_delete = False
 
+class BookImageTabularAdmin(admin.TabularInline):
+    model = BookImage
+    readonly_fields = (
+            'image',
+            'height',
+            'width',
+            )
+    can_delete = False
 
 @admin.register(ItemPost)
 class ItemModelAdmin(admin.ModelAdmin):
@@ -33,4 +41,5 @@ class ItemModelAdmin(admin.ModelAdmin):
 
     inlines = [
             BookListTabularAdmin,
+            BookImageTabularAdmin,
             ]
