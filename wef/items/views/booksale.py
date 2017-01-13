@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 
-from items.models import ItemPost, BookList
+from items.models import ItemPost, BookList, BookImage
 from items.tasks.haystack_indexing import UpdateIndexTask
 
 
@@ -33,6 +33,7 @@ class BookSale(LoginRequiredMixin, View):
         title = request.POST.get('title')
         book_names = request.POST.getlist('book')
         book_prices = request.POST.getlist('price')
+        images = request.FILES.getlist('images')
 
         # 등록된 책이 한권도 없을 때
         if not book_names:
@@ -60,9 +61,17 @@ class BookSale(LoginRequiredMixin, View):
                         bookprice=book_prices[i],
                         )
 
+            # 한 포스트당 이미지는 3개 까지만 등록가능
+            for i, image in enumerate(images[:3]):
+                BookImage.objects.create(
+                        post=created_bookpost,
+                        image = image,
+                        )
+
+
             # django-haystack auto indexing
-            auto_indexing = UpdateIndexTask()
-            auto_indexing.delay()
+#            auto_indexing = UpdateIndexTask()
+#            auto_indexing.delay()
 
             return redirect(
                     reverse(

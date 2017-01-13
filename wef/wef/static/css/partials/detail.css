@@ -16,3 +16,8 @@
     content: "\f05e";
     font-size: 20em;
 }
+
+.imagebox .image {
+    width: 80%;
+    margin : 0px 0px 10px 10%;
+}

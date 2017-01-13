@@ -7,7 +7,7 @@
 <div class="col-md-3"></div>
 
 <div class="col-md-6">
-  <form action="" method="POST">
+  <form action="" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
     <div class="from-group">
     <label for="title">제목을 입력해주세요</label>
@@ -25,8 +25,15 @@
         <input type='button' class="btn btn-default" name="addlist" value="추가">
     </div>
 
-    
 
+    <div class="input-group">
+        <label class="input-group-btn">
+            <span class="btn btn-primary">
+                이미지 첨부<input type="file" name='images' style="display: none;" multiple>
+            </span>
+        </label>
+        <input type="text" class="form-control" placeholder='모바일에서는 1장만 등록할 수 있습니다.' readonly>
+    </div>
 
     <ul class="booklist list-group">
     </ul>
