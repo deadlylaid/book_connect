@@ -27,14 +27,14 @@ class PostList(View):
             if page_number == 1 or (page_number-2) <= posts.number <= (page_number+2) \
                     or page_number == posts.paginator.count:
                 page_list.append(page_number)
-                print(page_list)
+                # print(page_list)
             else:
                 if page_list[-1] == '...':
-                    print(page_list)
+                    # print(page_list)
                     continue
                 else:
                     page_list.append('...')
-                    print(page_list)
+                    # print(page_list)
 
         context = {
                 "posts": posts,

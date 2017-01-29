@@ -1,0 +1,3 @@
+{{ object.post.title }}
+{{ object.bookname }}
+{{ object.bookprice }}

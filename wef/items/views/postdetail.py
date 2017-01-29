@@ -11,8 +11,13 @@ class PostDetail(View):
 
         post = ItemPost.objects.get(pk=pk)
 
+        books = post.booklist_set.order_by('booknumber')
+        images = post.bookimage_set.all()
+
         context = {
-                "post": post
+                "post": post,
+                "books": books,
+                "images": images,
                 }
 
         return render(
