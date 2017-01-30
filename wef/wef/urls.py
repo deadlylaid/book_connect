@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^$', Home.as_view(), name='home'),
 
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
-            name='django.contrib.sitemaps.views.sitemap'),
+        name='django.contrib.sitemaps.views.sitemap'),
 
     url(r'^joinus/$', join_us, name='join_us'),
     url(r'^login/$', LogInView.as_view(), name='log_in'),
