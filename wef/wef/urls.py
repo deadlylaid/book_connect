@@ -15,24 +15,39 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 
+from django.conf.urls.static import static
+from django.conf import settings
+
+from .sitemaps import StaticViewSitemap
 from wef.views import *
 from users.views import *
 from items.views import *
 from items.api.views import *
 from users.api.views import *
 
+sitemaps = {
+        'static': StaticViewSitemap
+        }
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^$', Home.as_view(), name='home'),
 
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
+        name='django.contrib.sitemaps.views.sitemap'),
+
     url(r'^joinus/$', join_us, name='join_us'),
     url(r'^login/$', LogInView.as_view(), name='log_in'),
     url(r'^logout/$', LogOutView.as_view(), name='log_out'),
+    url(r'^mypage/$', MyPage.as_view(), name='my_page'),
 
     url(r'^lists/$', PostList.as_view(), name='postlist'),
-    url(r'^search/$', SearchView.as_view(), name='postsearch'),
+
+    # using django-haystack + elasticsearch
+    url(r'^search/$', SearchView(), name='postsearch'),
 
     url(r'^booksale/$', BookSale.as_view(), name='booksale'),
     url(r'^booksale/(?P<pk>\d+)/$', PostDetail.as_view(), name='postdetail'),
@@ -48,4 +63,5 @@ urlpatterns = [
     url(r'^aftersocial/$', AfterSocial.as_view(), name='aftersocial'),
 
     url(r'', include('social.apps.django_app.urls', namespace='social')),
-]
+    # url(r'^search/', include('haystack.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

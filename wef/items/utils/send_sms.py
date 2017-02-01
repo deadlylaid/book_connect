@@ -1,22 +1,27 @@
 import os
 import requests
+import json
 
 
 class SendSMS():
 
     def send_sms(self, buyer_nickname, buyer_phone, saler_phone, selected_bookname):
-        API_BASE_URL = os.environ.get("API_BASE_URL")
-        response = requests.post(
-                API_BASE_URL,
-                data={
-                    'send_phone': '01020370706',
-                    'dest_phone': saler_phone,
-                    'msg_body': buyer_nickname+' 님께서 회원님의 ' +
-                    selected_bookname + '를 구매하고 싶어하십니다. 구매자 전화번호:' + buyer_phone,
-                    },
-                headers={
-                    "x-waple-authorization": os.environ.get("SMS_AUTHORIZATION")
-                    },
-                )
+        appid = os.environ.get("APPID")
+        apikey = os.environ.get("APIKEY")
 
-        return response
+        sender = '01020370706'
+        receivers = [saler_phone, ]
+
+        content = u'[북커넥트]' + selected_bookname + ' 판매요청. 요청자 번호:' + buyer_phone
+
+        url = os.environ.get("URL")
+
+        params = {
+                'sender': sender,
+                'receivers': receivers,
+                'content': content,
+        }
+        headers = {'Content-type': 'application/json; charset=utf-8', }
+        r = requests.post(url, data=json.dumps(params), auth=(appid, apikey), headers=headers)
+
+        return params

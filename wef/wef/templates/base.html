@@ -1,5 +1,4 @@
-{% load pipeline %}
-
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,12 +17,16 @@
   ga('send', 'pageview');
 </script>
     
+  <!-- Favicon -->
+  <link href="{% static "favicon/favicon-32x32.png" %}" rel="icon" type="image/png" sizes="32x32">
+  
   <!-- Font Awesome 4.6.1 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
   <!-- Bootstrap 3.3.7 CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+{% load pipeline %}
   {% stylesheet 'bookconnect' %}
   {% stylesheet 'fonts' %}
 
