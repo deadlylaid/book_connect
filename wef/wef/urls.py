@@ -15,20 +15,29 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 
 from django.conf.urls.static import static
 from django.conf import settings
 
+from .sitemaps import StaticViewSitemap
 from wef.views import *
 from users.views import *
 from items.views import *
 from items.api.views import *
 from users.api.views import *
 
+sitemaps = {
+        'static': StaticViewSitemap
+        }
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^$', Home.as_view(), name='home'),
+
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
+        name='django.contrib.sitemaps.views.sitemap'),
 
     url(r'^joinus/$', join_us, name='join_us'),
     url(r'^login/$', LogInView.as_view(), name='log_in'),
