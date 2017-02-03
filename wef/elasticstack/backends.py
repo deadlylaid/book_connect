@@ -4,10 +4,13 @@ from haystack.backends.elasticsearch_backend import ElasticsearchSearchEngine
 
 # Elasticsearch + mecab-ko Configurate
 
+
 # Haystack's Elasticsearch Backend Configure
 class ConfigurableElasticBackend(ElasticsearchSearchBackend):
     DEFAULT_ANALYZER = 'korean_index'
+
     def __init__(self, connection_alias, **connection_options):
+
             super(ConfigurableElasticBackend, self).__init__(
                                     connection_alias, **connection_options)
 
@@ -20,9 +23,7 @@ class ConfigurableElasticBackend(ElasticsearchSearchBackend):
                 setattr(self, 'DEFAULT_ANALYZER', user_analyzer)
 
     def build_schema(self, fields):
-        content_field_name, mapping = super(ConfigurableElasticBackend,
-                                              self).build_schema(fields)
-
+        content_field_name, mapping = super(ConfigurableElasticBackend, self).build_schema(fields)
         for field_name, field_class in fields.items():
             field_mapping = mapping[field_class.index_fieldname]
 
