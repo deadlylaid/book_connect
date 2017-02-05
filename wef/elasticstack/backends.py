@@ -8,7 +8,7 @@ from haystack.constants import DEFAULT_OPERATOR, DJANGO_CT, DJANGO_ID, FUZZY_MAX
 
 # Haystack's Elasticsearch Backend Configure
 class ConfigurableElasticBackend(ElasticsearchSearchBackend):
-	pass
+    pass
 
 
 # Haystack's Elasticsearch Engine Configure
