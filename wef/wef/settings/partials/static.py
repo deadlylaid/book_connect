@@ -51,6 +51,12 @@ PIPELINE = {
             ),
             'output_filename': 'js/detail.js',
         },
+        'list': {
+            'source_filenames': (
+                'js/list.js',
+            ),
+            'output_filename': 'js/list.js',
+        },
         'aftersocial': {
             'source_filenames': (
                 'js/users/aftersocial.js',
