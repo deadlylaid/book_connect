@@ -1,34 +1,67 @@
+{% load staticfiles %}
 <footer id="footer" class="footer">
   <div class="container">
   	<div class="row">
-  		<section class="col-md-9 hidden-sm hidden-xs">
+  		<section class="col-md-5 hidden-sm hidden-xs">
+        <h4 class="hanna">북커넥트 :: 개발자</h4>	
 	  		<h4>이 세상의 모든 책이</h4>
 	    	<h4>당신에게 필요한 것은 아닙니다.</h4>	
   		</section>
 
-  		<section class="col-md-3 col-sm-3 col-xs-12">
-	  		<div>개발자 Info</div>
+      <section class="col-md-4 hidden-sm hidden-xs">
         <ul>
           <li>
-            <a href="https://www.facebook.com/deadlylaid">
-              <i class="fa fa-facebook-official" style="font-size:34px"></i>
+            <a href="http://paphopu.tistory.com/">
+              <i class="fa fa-rss-square" aria-hidden="true" style="font-size:34px" title="개발자 블로그"></i>
             </a>
           </li>
 
           <li>
-            <a href="https://www.instagram.com/healyou_min92/">
-              <i class="fa fa-instagram" style="font-size:34px"></i>
+            <a href="https://www.facebook.com/nsu22/">
+              <i class="fa fa-facebook-official" style="font-size:34px" title="23대 총학생회 페이스북"></i>
             </a>
           </li>
 
           <li>
-            <a href="https://github.com/deadlylaid">
-              <i class="fa fa-github-square" style="font-size:34px"></i>
+            <a href="mailto:deadlylaid@gmail.com">
+              <i class="fa fa-envelope" aria-hidden="true" style="font-size:34px" title="건의사항 이메일"></i>
             </a>
           </li>
         </ul>
-	    	
+
+      </section>
+
+  		<section class="col-md-3 hidden-sm hidden-xs">
+        <img alt="nsu" src="{% static "logos/nsu.png" %}" width="70" height="54" style="float:left; margin-right:10px;">
+	  		<h4>1만 학우의 가슴에</h4>
+        <h4>진한 감동을 울리다.</h4>
+        <ul>
+          <li style="margin-left: 20px;">- 제 23대 남서울대 총학생회 울림 -</li>
+        </ul>
+
+      </section>
+
+  		<section class="col-xs-12 hidden-md hidden-lg">
+
+        <ul>
+          <li><h2 class="hanna" style="float:left">북커넥트 X</h2>
+          <img alt="nsu" src="{% static "logos/nsu.png" %}" width="70" height="54" style="float:left; margin-right:10px;"></li>
+
+          <li>
+            <a href="http://paphopu.tistory.com/">
+              <i class="fa fa-rss-square" aria-hidden="true" style="font-size:34px" title="개발자 블로그"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.facebook.com/nsu22/">
+              <i class="fa fa-facebook-official" style="font-size:34px" title="23대 총학생회 페이스북"></i>
+            </a>
+          </li>
+
+        </ul>
   		</section>
+
 		</div>
   </div>
 </footer>
