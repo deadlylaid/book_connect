@@ -36,6 +36,8 @@ urlpatterns = [
 
     url(r'^$', Home.as_view(), name='home'),
 
+    url(r'^introduce/$', IntroduceView.as_view(), name='introduce'),
+
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap'),
 
