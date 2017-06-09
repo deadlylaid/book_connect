@@ -33,7 +33,7 @@
     </div>
 
     <div class="item-detail">
-    
+
         <h3 class="hanna">판매 중인 도서</h3>
 
         <h5 class="text-warning" style="padding-left : 10px; padding-bottom : 10px;">
@@ -52,11 +52,11 @@
               {% else %}
               <li id='list{{ forloop.counter }}' class='list-group-item list-group-item-danger bk-border-color redline'>{{ bookname.bookname }}({{ bookname.bookprice }}원) {% if request.user.username == post.user.username %}<input type='button' id='btn{{ forloop.counter }}' class="bk-float-right" value='번복하기'>{% endif %}<input type='text' value='이미 판매된 도서입니다' disabled> </li>
               {% endif %}
-              {% if forloop.last %}<div class='data' data-list-num={{ forloop.counter }} data-post-id={{ post.id }}></div> {% endif %} 
+              {% if forloop.last %}<div class='data' data-list-num={{ forloop.counter }} data-post-id={{ post.id }}></div> {% endif %}
           {% endfor %}
 
         </ul>
-    
+
     </div>
 
     {% if images %}

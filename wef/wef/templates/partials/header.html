@@ -1,6 +1,6 @@
 <header id="header">
 	<nav class="navbar container navbar-dark primary-color navbar-defualt">
-		
+
 		<div class="navbar-header">
 			<a href="/" class="navbar-brand hanna">도서공유::북커넥트</a>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -26,6 +26,7 @@
 		  </ul>
 					{% endif %}
 			<ul class="nav navbar-nav navbar-left">
+				<li class="nav-item"><a href="{% url "introduce" %}" id='post_list'>사이트 소개</a></li>
 				<li class="nav-item"><a href="{% url "booksale" %}" id='book_sale'>도서등록</a></li>
 				<li class="nav-item"><a href="{% url "postlist" %}" id='post_list'>도서리스트</a></li>
 			</ul>
