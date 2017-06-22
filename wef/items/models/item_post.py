@@ -32,6 +32,12 @@ class ItemPost(models.Model):
 
     is_deleted = models.BooleanField(
             default=False,
+            verbose_name="삭제된 포스트",
+            )
+
+    is_ended_semester = models.BooleanField(
+            default=False,
+            verbose_name="지난 학기 도서",
             )
 
     def __str__(self):
