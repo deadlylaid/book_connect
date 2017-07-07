@@ -13,3 +13,8 @@
 ## 사이트 링크
 
 [남서울 북커넥트](https://namconnect.net)
+
+
+### 남서울대학교 23대 총학생회 "울림"과 홍보협력을 맺었습니다.
+
+[남서울대 울림](https://www.facebook.com/nsu23/photos/pcb.1929813693918024/1929811540584906/?type=3&theater)
