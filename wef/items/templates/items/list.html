@@ -9,42 +9,42 @@
 	<section class="col-md-8">
 
 	<div class="form-inline">
-    <form action="/search/" method="get" class="search">
-    	<div class="form-group bookconnect-form">
-                <div id="alert"></div>    
-				<input type="submit" class="btn btn-default" value="검색">
-				<label class="sr-only"for="keyword">keyword</label>
+        <form action="/search/" method="get" class="search">
+            <div class="form-group bookconnect-form">
+                <div id="alert"></div>
+                <input type="submit" class="btn btn-default" value="검색">
+                <label class="sr-only"for="keyword">keyword</label>
                 <input type="text" class="form-control bookconnect-input-text" name="q" placeholder="제목과 책 이름으로 검색됩니다." required style="width : 90%; height : 42px; margin-bottom : 10px;">
-
-    	</div>
-
-		</form>
-	</div>		
+            </div>
+        </form>
+	</div>
 
 <br>
 <br>
 {% if posts %}
 	{% for post in posts %}
-		<div>
-		<div class="panel panel-success">
-					<div class="panel-heading">
-						<div>
-							<h4>
-								<a href="{% url "postdetail" post.id %}">
-									{{post.title}}
-								</a>
-							</h4>
-						</div>
-						<div style="text-align:right">
-							{{ post.created_at|date:"Y년 m월 d일 g:i A" }}
-						</div>
-					</div>
-					<div class="panel-body">판매자 : {{post.user.nickname}}</div>
-		  {% comment %}
-		  <div>제목: <a href="{% url "postdetail" post.id %}">{{ post.title }}</a></div>
-		  <div>글쓴이:{{ post.user.nickname }}</div>
-		  <div>날짜:{{ post.updated_at }}</div>
-			{% endcomment %}
+        {% if post.is_ended_semester %}
+        <div class="panel panel-danger">
+        {% else %}
+        <div class="panel panel-success">
+        {% endif %}
+            <div class="panel-heading">
+                <div>
+                    <h4>
+                        <a href="{% url "postdetail" post.id %}">
+                            {% if post.is_ended_semester %}
+                            {{ post.title }}(지난 학기에 등록된 포스트입니다.)
+                            {% else %}
+                            {{post.title}}
+                            {% endif %}
+                        </a>
+                    </h4>
+                </div>
+                <div style="text-align:right">
+                    {{ post.created_at|date:"Y년 m월 d일 g:i A" }}
+                </div>
+            </div>
+            <div class="panel-body">판매자 : {{post.user.nickname}}</div>
 		</div>
 		<br>
 		<br>
@@ -75,7 +75,7 @@
 			{% else %}
 				<li><a href='/lists/?page={{ page_number }}'>{{ page_number }}</a></li>
 			{% endif %}
-		{% endfor %}	
+		{% endfor %}
 
 		{# "comment -1" 만약 다음이 있다면 다음을 표시한다 #}
 		{% if posts.has_next %}
