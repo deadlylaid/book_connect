@@ -11,14 +11,22 @@
 		</section>
 
 		<section class="col-md-8">
-			<h3 class="hanna">최근 올라온 도서들입니다.</h3>
+			<h3 class="hanna">학우분들이 직접 올려주신 도서들입니다.</h3>
 			{% for post in posts %}
+                {% if post.is_ended_semester %}
+				<div class="panel panel-danger">
+                {% else %}
 				<div class="panel panel-success">
+                {% endif %}
 					<div class="panel-heading">
 						<div>
 							<h4>
 								<a href="{% url "postdetail" post.id %}">
-									{{post.title}}
+                                    {% if post.is_ended_semester %}
+                                        {{post.title}}(지난 학기에 등록된 포스트입니다.)
+                                    {% else %}
+                                        {{post.title}}
+                                    {% endif %}
 								</a>
 							</h4>
 						</div>
@@ -27,7 +35,7 @@
 						</div>
 					</div>
 					<div class="panel-body">판매자 : {{post.user.nickname}}</div>
-					{% comment %} 
+					{% comment %}
 					<div>
 						<ul>
               {% for post_info in post.booklist_set.all %}
