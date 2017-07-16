@@ -7,3 +7,12 @@
     color: #007E33;
     text-decoration: none;
 }
+
+.panel .panel-heading .end-semester a {
+    color: #ca0c0c;
+}
+
+.panel .panel-heading .end-semester a:hover {
+    color: #ca0c0c;
+    text-decoration: none;
+}
