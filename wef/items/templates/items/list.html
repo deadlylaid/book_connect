@@ -29,7 +29,7 @@
         <div class="panel panel-success">
         {% endif %}
             <div class="panel-heading">
-                <div>
+                <div class={% if post.is_ended_semester %}end-semester{% endif %}>
                     <h4>
                         <a href="{% url "postdetail" post.id %}">
                             {% if post.is_ended_semester %}
