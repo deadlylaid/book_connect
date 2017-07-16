@@ -40,7 +40,11 @@
             {% if request.user.username == post.user.username %}
                 상대방에게 문자가 너무 많이 온다면 <strong>'게시물 삭제' </strong>도 좋은 방법입니다.
             {% else %}
-                <strong>주의! </strong>문자를 너무 많이 보낼 경우 받는 사람이 불쾌할 수 있으니 한번만 보내기를 권장합니다.
+                {% if post.is_ended_semester_def %}
+                    <strong>해당 판매 포스트는 지난 학기에 등록된 포스트입니다. </br>판매자가 해당 도서를 갖고 있지 않을 가능성이 있습니다.</strong>
+                {% else %}
+                    <strong>주의! </strong>문자를 너무 많이 보낼 경우 받는 사람이 불쾌할 수 있으니 한번만 보내기를 권장합니다.
+                {% endif %}
             {% endif %}
         </h5>
 
