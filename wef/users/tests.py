@@ -53,7 +53,10 @@ class UserTest(TestCase):
         response = self.client.login(username=self.username, password=self.password)
         self.assertFalse(response)
 
-#        send_reset_password_post = self.client.put('/password/reset/', {'username': 'test_user', 'password': self.password})
+#        send_reset_password_post = self.client.put(
+#                '/password/reset/',
+#                {'username': 'test_user', 'password': self.password}
+#                )
 #        self.assertEqual(send_reset_password_post.status_code, 302)
 #
 #        response = self.client.login(username=self.username, password=self.password)
