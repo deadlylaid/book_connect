@@ -8,7 +8,7 @@
 {% block body %}
 <div class="container">
 	<section class="col-md-2">
-	</section>	
+	</section>
 
 	<section class="col-md-8">
 		<div class="raw">
@@ -25,30 +25,31 @@
 			    </div>
 			    <div class="form-group">
 				    <label for="user">비밀번호를 입력해주세요</label>
+                    <a href={% url "password_reset" %} style='float:right'>아이디나 비밀번호가 기억나지 않으세요?</a>
 				    <input type="password" maxlength="30" class="form-control" name="password" placeholder="비밀번호" required>
 			    </div>
 
 			    <input type="submit" id='button' class="btn btn-default btn-block" value="로그인">
-					
+
 			  </form>
 				<div class="or-container">
 			    <hr class="hr-line">
 			    <div id="or" >OR</div>
 				</div>
-				
+
 				<div class="title-comment">
-					<h3 class="hanna">초간단 소셜 로그인</h3>	
+					<h3 class="hanna">초간단 소셜 로그인</h3>
 				</div>
 
 				<div class="social-button">
 					<a href="/login/facebook/"class="btn btn-facebook btn-block">
 					<i class="fa fa-facebook" aria-hidden="true"></i>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;페이스북으로 로그인 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;페이스북으로 로그인
 					</a>
 
 					<a href="/login/kakao/" class="btn btn-kakao btn-block">
 						<i class="fa fa-comment" aria-hidden="true"></i>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카카오톡으로 로그인 
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카카오톡으로 로그인
 					</a>
 				</div>
 			</div>
@@ -57,9 +58,9 @@
 	</section>
 
 	<section class="col-md-2">
-	</section>	
+	</section>
 
 </div>
 
-  
+
 {% endblock %}
