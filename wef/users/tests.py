@@ -27,7 +27,9 @@ class UserTest(TestCase):
         self.username = 'test_user'
         self.password = 'password'
         self.phone = '01022222222'
-        self.user = User.objects.create_user(username=self.username, password=self.password, phone=self.phone)
+        self.user = User.objects.create_user(username=self.username, phone=self.phone)
+        self.user.set_password(self.password)
+        self.user.save()
 
     # joinus url에 들어가면 join_us view를 호출한다.
     def test_join_us_url_resolve_to_join_us_view(self):
@@ -53,11 +55,16 @@ class UserTest(TestCase):
         response = self.client.login(username=self.username, password=self.password)
         self.assertFalse(response)
 
-#        send_reset_password_post = self.client.put(
-#                '/password/reset/',
-#                {'username': 'test_user', 'password': self.password}
-#                )
-#        self.assertEqual(send_reset_password_post.status_code, 302)
-#
-#        response = self.client.login(username=self.username, password=self.password)
-#        self.assertTrue(response)
+        # 휴대폰 번호를 입력하면 토큰정보가 들어옴
+        # 그걸 입력하면 아이디가 노출됨
+        # 그리고 비밀번호를 재설정하라고 뜸
+        send_reset_password_post = self.client.post(
+                '/password/reset/',
+                {'hidden_username': 'test_user', 'password-check': self.password}
+                )
+        self.assertEqual(send_reset_password_post.status_code, 302)
+
+        response = self.client.login(username=self.username, password=self.password)
+
+        # 비밀번호 변경이 정상적으로 완료되었다.
+        self.assertTrue(response)
