@@ -24,12 +24,18 @@ class PhoneNumberCheck(APIView):
             '''
             try:
                 searched_user_by_phone_number = overlap_phone_number_user[0]
+
             except IndexError as e:
                 # 일치하는 회원정보 없음
-                #status는 추후 변경
-                response_data['result'] = False
-                response_data['id'] = None
-                return Response(response_data, status=status.HTTP_200_OK)
+                return Response(response_data, status=401)
+
+            token = str(maketoken())
+
+            searched_user_by_phone_number.certification_code = token
+            searched_user_by_phone_number.save()
+
+            task = SendPhoneCheckSMSTask()
+            task.delay(received_phone_number, token)
 
             # 일치하는 회원정보 있음
             response_data['result'] = True

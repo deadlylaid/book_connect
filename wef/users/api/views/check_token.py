@@ -12,13 +12,29 @@ class CheckToken(APIView):
         received_token = request.data.get('token_num')
         response_data = {}
 
-        if request.user.certification_code == received_token:
-            request.user.passed_certification = True
-            request.user.save()
-            response_data['certification'] = True
+        if not request.user.is_anonymous():
+            if request.user.certification_code == received_token:
+                request.user.passed_certification = True
+                request.user.save()
+                response_data['certification'] = True
 
-            return Response(response_data, status=status.HTTP_200_OK)
+                return Response(response_data, status=status.HTTP_200_OK)
 
+            else:
+                response_data['certification'] = False
+                return Response(response_data, status=status.HTTP_200_OK)
         else:
-            response_data['certification'] = False
-            return Response(response_data, status=status.HTTP_200_OK)
+            received_phone_number = request.data.get('phone_number')
+
+            searched_user_by_phone_number = User.objects.get(phone=received_phone_number)
+
+            if searched_user_by_phone_number.certification_code == received_token:
+                searched_user_by_phone_number.passed_certification = True
+                searched_user_by_phone_number.save()
+                response_data['certification'] = True
+                response_data['username'] = searched_user_by_phone_number.username
+
+                return Response(response_data, status=status.HTTP_200_OK)
+            else:
+                response_data['certification'] = False
+                return Response(response_data, status=status.HTTP_200_OK)
