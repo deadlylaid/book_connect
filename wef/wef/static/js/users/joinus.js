@@ -10,7 +10,7 @@
         if($checkpassword.val()!=$password.val()){
             var checkpw_message = '<p class="text-danger"><strong>잠깐! </strong> 비밀번호가 일치하지 않아요!</p>';
             pw_message.innerHTML = checkpw_message;
-            
+
             $submit_button.attr('disabled', true);
             //console.log("틀렸습니다");
             //console.log($checkpassword.val());
@@ -46,14 +46,8 @@
                             check_username.innerHTML = newElement;
                         }
                     }
-        
         });
-
-    
-    
     });
-
-
 })();
 
 
