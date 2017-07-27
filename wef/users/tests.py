@@ -55,9 +55,9 @@ class UserTest(TestCase):
         response = self.client.login(username=self.username, password=self.password)
         self.assertFalse(response)
 
-        #휴대폰 번호를 입력하면 토큰정보가 들어옴
-        #그걸 입력하면 아이디가 노출됨
-        #그리고 비밀번호를 재설정하라고 뜸
+        # 휴대폰 번호를 입력하면 토큰정보가 들어옴
+        # 그걸 입력하면 아이디가 노출됨
+        # 그리고 비밀번호를 재설정하라고 뜸
         send_reset_password_post = self.client.post(
                 '/password/reset/',
                 {'hidden_username': 'test_user', 'password-check': self.password}
