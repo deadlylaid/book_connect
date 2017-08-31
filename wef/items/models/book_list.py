@@ -20,6 +20,10 @@ class BookList(models.Model):
             max_length=200,
             )
 
+    price_undefined = models.BooleanField(
+            default=False,
+            )
+
     is_soldout = models.BooleanField(
             default=False,
             )
