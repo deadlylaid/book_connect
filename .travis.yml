@@ -1,8 +1,8 @@
-language: 
+language:
     python
 python:
     - 3.5.1
-addons: 
+addons:
     postgresql:"9.5.1"
 install:
     - pip install -r requirement/development.txt
@@ -14,10 +14,13 @@ before_script:
     - npm -g install yuglify
     - npm install yuglify
 
+service:
+    - redis-server
+
 # # command to run tests
 script:
     - pep8
     - python wef/manage.py makemigrations users items
     - python wef/manage.py migrate
     - python wef/manage.py collectstatic --settings=wef.settings.development --noinput
-    - python wef/manage.py test users --settings=wef.settings.development
+    - python wef/manage.py test users items --settings=wef.settings.development
