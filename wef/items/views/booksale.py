@@ -54,6 +54,8 @@ class BookSale(LoginRequiredMixin, View):
                     )
 
             for i, names in enumerate(book_names):
+                if book_prices[i] == '가격미정':
+                    book_prices[i] = 0
                 BookList.objects.create(
                         post=created_bookpost,
                         booknumber=i+1,

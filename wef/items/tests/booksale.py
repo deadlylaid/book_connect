@@ -35,3 +35,17 @@ class NewBookSaleTest(SetUpLogInMixin):
 
         new_post = ItemPost.objects.first()
         self.assertEqual(new_post.title, '책 팝니다')
+
+        send_post_price_is_null_data = self.client.post(
+                '/booksale/',
+                data={
+                    'title': '책팜2',
+                    'book': ['book1', 'book2'],
+                    'price': ['가격미정', '2000'],
+                    'is_price_null': ['True', 'True'],
+                    }
+                )
+
+        second_post = ItemPost.objects.last()
+        self.assertEqual(second_post.title, '책팜2')
+        self.assertEqual(second_post.booklist_set.first().bookprice, 0)

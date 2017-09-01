@@ -16,8 +16,7 @@ class BookList(models.Model):
             max_length=200,
             )
 
-    bookprice = models.CharField(
-            max_length=200,
+    bookprice = models.IntegerField(
             )
 
     price_undefined = models.BooleanField(
