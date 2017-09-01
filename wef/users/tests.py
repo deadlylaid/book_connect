@@ -4,8 +4,9 @@ from django.http import HttpRequest
 
 from wef.views import Home
 
+from wef.mixins.tests import SetUpMixin
+
 from users.views import join_us
-from users.models import User
 
 
 class HomePageTest(TestCase):
@@ -21,15 +22,7 @@ class HomePageTest(TestCase):
         self.assertTemplateUsed(response, 'home.html')
 
 
-class UserTest(TestCase):
-
-    def setUp(self):
-        self.username = 'test_user'
-        self.password = 'password'
-        self.phone = '01022222222'
-        self.user = User.objects.create_user(username=self.username, phone=self.phone)
-        self.user.set_password(self.password)
-        self.user.save()
+class UserTest(SetUpMixin):
 
     # joinus url에 들어가면 join_us view를 호출한다.
     def test_join_us_url_resolve_to_join_us_view(self):
