@@ -13,7 +13,7 @@ before_script:
     - psql -c 'ALTER USER hanminsoo CREATEDB;' -U postgres
     - npm -g install yuglify
     - npm install yuglify
-    - redis-server
+    - redis-server --port 6378 --requirepass 'secret'
 
 # # command to run tests
 script:
