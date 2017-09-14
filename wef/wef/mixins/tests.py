@@ -12,3 +12,10 @@ class SetUpMixin(TestCase):
         self.user = User.objects.create_user(username=self.username, phone=self.phone)
         self.user.set_password(self.password)
         self.user.save()
+
+
+class SetUpLogInMixin(SetUpMixin):
+
+    def setUp(self):
+        SetUpMixin.setUp(self)
+        self.client.login(username=self.username, password=self.password)

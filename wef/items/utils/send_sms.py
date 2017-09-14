@@ -1,3 +1,5 @@
+from wef.decorators import log_decorator
+
 import os
 import requests
 import json
@@ -5,6 +7,7 @@ import json
 
 class SendSMS():
 
+    @log_decorator
     def send_sms(self, buyer_nickname, buyer_phone, saler_phone, selected_bookname):
         appid = os.environ.get("APPID")
         apikey = os.environ.get("APIKEY")

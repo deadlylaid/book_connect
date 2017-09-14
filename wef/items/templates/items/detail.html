@@ -52,7 +52,7 @@
 
             {% for bookname in books %}
               {% if not bookname.is_soldout %}
-              <li id='list{{ forloop.counter }}' class="list-group-item bk-border-color">{{ bookname.bookname }}({{ bookname.bookprice }}원) {% if request.user.username == post.user.username %}<input type='button' class="bk-float-right" id='btn{{ forloop.counter }}' value='sold out'>{% else %} <input type='button' class="bk-float-right" id='msg{{ forloop.counter }}' value='문자보내기'>{% endif %} </li>
+              <li id='list{{ forloop.counter }}' class="list-group-item bk-border-color">{{ bookname.bookname }}{% if bookname.bookprice == 0 %}(가격미정){% else %}({{ bookname.bookprice }}원){% endif %} {% if request.user.username == post.user.username %}<input type='button' class="bk-float-right" id='btn{{ forloop.counter }}' value='sold out'>{% else %} <input type='button' class="bk-float-right" id='msg{{ forloop.counter }}' value='문자보내기'>{% endif %} </li>
               {% else %}
               <li id='list{{ forloop.counter }}' class='list-group-item list-group-item-danger bk-border-color redline'>{{ bookname.bookname }}({{ bookname.bookprice }}원) {% if request.user.username == post.user.username %}<input type='button' id='btn{{ forloop.counter }}' class="bk-float-right" value='번복하기'>{% endif %}<input type='text' value='이미 판매된 도서입니다' disabled> </li>
               {% endif %}

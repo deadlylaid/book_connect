@@ -10,7 +10,7 @@ function:
 	python wef/manage.py test functional_test
 
 unnit:
-	python wef/manage.py test users
+	python wef/manage.py test users items
 
 migrate:
 	python wef/manage.py makemigrations users items
