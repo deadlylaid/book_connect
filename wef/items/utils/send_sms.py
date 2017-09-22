@@ -15,6 +15,10 @@ class SendSMS():
         sender = '01020370706'
         receivers = [saler_phone, ]
 
+        if len(selected_bookname.rsplit(' ')) > 3:
+            length_of_divided_bookname = int(len(selected_bookname.rsplit(' '))/2)
+            selected_bookname = selected_bookname.rsplit(' ', length_of_divided_bookname)[0] + '...'
+
         content = u'[북커넥트]' + selected_bookname + ' 판매요청. 요청자 번호:' + buyer_phone
 
         url = os.environ.get("URL")
