@@ -1,6 +1,7 @@
-from .base import BASE_DIR
+from .base import BASE_DIR, PROJECT_BASE_DIR
 
 import os
+import raven
 
 
 SMS_LOG_FILE = os.path.abspath(os.path.join(BASE_DIR, '../sms.log'))
@@ -23,3 +24,8 @@ LOGGING = {
                 },
             },
     }
+
+RAVEN_CONFIG = {
+        'dsn': 'https://563061d4159f488b9e8c4f5341221540:34b0be4314dc41dab8544ab1590736c7@sentry.io/125906',
+        'release': raven.fetch_git_sha(PROJECT_BASE_DIR),
+        }
